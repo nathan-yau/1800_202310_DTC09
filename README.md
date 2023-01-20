@@ -8,7 +8,8 @@ This browser based web application to ...
 List team members and/or short bio's here... 
 * Hi, my name is Jason. I am terrified of all our courses. Somebody hold me.
 * Hi, my name is Sung. I am excited about this project!
-* Hi, my name is Nathan! Can't wait to start building our first web application!!
+* Hi, my name is Nathan! Can't wait to start building our first web application!
+* HI, my name is Reza Hedieloo, I am excited to work on the project.
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
