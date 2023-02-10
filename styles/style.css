@@ -70,6 +70,7 @@ body {
 }
 
 .material-symbols-outlined {
+    color: white;
     font-size: 36px;
     font-variation-settings:
         'FILL' 0,
@@ -130,4 +131,9 @@ body {
 
 .button:hover {
     background-color: rgb(230, 229, 229);
+}
+
+#ring_float img {
+    width: "50px";
+    margin-right: 10px;
 }
