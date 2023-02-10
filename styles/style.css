@@ -1,73 +1,81 @@
 body {
     font-family: 'Open Sans', sans-serif;
 }
-  
+
+
+
 .sidebar {
-height: 100%;
-width: 0;
-position: fixed;
-z-index: 1;
-top: 0;
-right: 0;
-background-color: #1A659E;
-overflow-x: hidden;
-transition: 0.5s;
-padding-top: 60px;
-box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #1A659E;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
 }
 
 .sidebar a {
-padding: 8px 8px 8px 32px;
-text-decoration: none;
-font-size: 25px;
-color: #ffffff;
-display: block;
-transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
 }
 
 .sidebar a:hover {
-color: #C9C9C9;
+    color: #C9C9C9;
 }
 
 .sidebar .closebtn {
-position: absolute;
-top: 0;
-right: 25px;
-font-size: 36px;
-margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
 .openbtn {
-font-size: 20px;
-cursor: pointer;
-background-color: #ee6c4d;
-color: white;
-padding: 10px 10px;
-border: none;
-float: right
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #ee6c4d;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    float: right
 }
 
 #header {
-transition: margin-left .5s;
-padding: 20px;
-background-color: #ee6c4d;
+    transition: margin-left .5s;
+    padding: 20px;
+    background-color: #ee6c4d;
+}
+
+#header img {
+    float: left;
+    width: 50px;
+    height: 50px;
 }
 
 #header h1 {
-font-size: 2.1em;
-font-weight: 800;
-color: #fff; 
-margin-top: 5px;
-margin-left: 5px;
+    font-size: 2.1em;
+    font-weight: 800;
+    color: #fff;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 
 .material-symbols-outlined {
-font-size: 36px;
-font-variation-settings:
-'FILL' 0,
-'wght' 500,
-'GRAD' 0,
-'opsz' 48
+    font-size: 36px;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 500,
+        'GRAD' 0,
+        'opsz' 48
 }
 
 #main {
@@ -77,45 +85,49 @@ font-variation-settings:
 }
 
 #navbar_bottom {
-    padding-top:250px;
+    padding-top: 250px;
 }
 
-#main{
+#main {
     align-items: center;
     padding: 100px 0;
-    
+
 }
-#banner{
+
+#banner {
     font-size: 50px;
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Open Sans', sans-serif;
 }
-#sub_banner{
+
+#sub_banner {
     color: gray;
     font-size: 20px;
     margin-top: 20px;
 }
-.login{
+
+.login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
-}
-  
 
-.button{
+}
+
+
+.button {
     padding: 10px 80px;
     margin-bottom: 30px;
-    background-color:#b3f0ff;
+    background-color: #b3f0ff;
     border-radius: 30px;
     display: block;
     align-items: center;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-    text-shadow:white 1px 2px  ;
+    text-shadow: white 1px 2px;
 }
-.button:hover{
+
+.button:hover {
     background-color: rgb(230, 229, 229);
 }
