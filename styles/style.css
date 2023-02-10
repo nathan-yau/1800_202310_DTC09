@@ -80,4 +80,43 @@ font-variation-settings:
     padding-top:250px;
 }
 
+#main{
+    align-items: center;
+    padding: 100px 0;
+    
+}
+#banner{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+#sub_banner{
+    color: gray;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+}
   
+
+.button{
+    padding: 10px 80px;
+    margin-bottom: 30px;
+    background-color:#b3f0ff;
+    border-radius: 30px;
+    display: block;
+    align-items: center;
+    box-shadow: 1px gray;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-shadow:white 1px 2px  ;
+}
+.button:hover{
+    background-color: rgb(230, 229, 229);
+}
