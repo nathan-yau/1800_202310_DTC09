@@ -107,7 +107,7 @@ body {
     margin-top: 20px;
 }
 
-.login {
+.login-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -116,7 +116,7 @@ body {
 }
 
 
-.button {
+.login {
     padding: 10px 80px;
     margin-bottom: 30px;
     background-color: #b3f0ff;
@@ -129,7 +129,7 @@ body {
     text-shadow: white 1px 2px;
 }
 
-.button:hover {
+.login:hover {
     background-color: rgb(230, 229, 229);
 }
 
