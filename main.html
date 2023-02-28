@@ -35,10 +35,11 @@
         rel="stylesheet">
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/main_style.css">
 
 </head>
 
-<body>
+<body class="bg-light">
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -48,8 +49,97 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- Main -->
-    <div id="main">
-        <h1 id="banner">Good morning</h1>
+    <div class="container-fluid text-dark pt-5">
+        <div class="container" id="main-context">
+            <div class="input-group pb-3 form">
+                <span class="fa-search material-symbols-outlined">location_searching</span>
+                <input type="search" class="form-control rounded customized-search" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon">
+                <button type="button" class="btn btn-outline-primary">search</button>
+            </div>
+            <p style="font-weight: 900;">Available Community</p>
+            <div class="card pb-5 mb-3" aria-hidden="true">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"> Vacouver (V5S)</span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span class="placeholder col-7"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-6"></span>
+                        <span class="placeholder col-8"></span>
+                    </p>
+                    <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+                </div>
+            </div>
+            <div class="card pb-5 mb-3" aria-hidden="true">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span class="placeholder col-7"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-6"></span>
+                        <span class="placeholder col-8"></span>
+                    </p>
+                    <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+                </div>
+            </div>
+            <div class="card pb-5 mb-3" aria-hidden="true">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span class="placeholder col-7"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-6"></span>
+                        <span class="placeholder col-8"></span>
+                    </p>
+                    <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+                </div>
+            </div>
+            <div class="card pb-5 mb-3" aria-hidden="true">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span class="placeholder col-7"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-6"></span>
+                        <span class="placeholder col-8"></span>
+                    </p>
+                    <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+                </div>
+            </div>
+            <div class="card pb-5 mb-3" aria-hidden="true">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span class="placeholder col-7"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-6"></span>
+                        <span class="placeholder col-8"></span>
+                    </p>
+                    <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+                </div>
+            </div>
+            <div style="height: 70px;"></div>
+        </div>
     </div>
 
     <!--Footer-->
@@ -64,6 +154,7 @@
     <script src="./scripts/firebaseAPI_DTC09.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/main.js"></script>
     <script src="./scripts/authentication.js"></script>
 
 </body>
