@@ -6,6 +6,6 @@ function closeNav() {
   document.getElementById("navbar").style.width = "0";
 }
 
-$(".login").click(function () {
+$("body").on("click", ".login", function () {
   window.location = "./login.html";
 });
