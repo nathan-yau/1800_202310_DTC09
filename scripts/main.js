@@ -25,7 +25,6 @@ function displayCardsDynamically(collection) {
                 document.getElementById(collection + "-go-here").appendChild(newcard);
                 i++;
             }
-            
             if (i > 10) {
                 throw 'Break';
             }
