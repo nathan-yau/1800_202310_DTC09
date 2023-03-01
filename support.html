@@ -40,17 +40,106 @@
 
     <!-- Our own CSS File -->
     <link rel="stylesheet" href="./styles/default_style.css">
+   
 </head>
+<style>
+     body{
+        background-image: url("./images/contact-us.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
 
+      #contact-form {
+        background-color:rgb(195, 227, 230);
+        padding: 20px;
+        margin: 50px auto;
+        width: 400px;
+      }
+
+    
+      input,textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      .submit{
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .submit:hover {
+        background-color: #45a049;
+      }
+    </style>
 <body>
-    <!-- Nav Section -->
-    <nav id="navbarPlaceholder"></nav>
+<div id="navbar" class="sidebar">
+    <div id="navbar_top">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="./main.html">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Bookmarks</a>
+        <a href="#">Notification</a>
+    </div>
+    <div id="navbar_bottom">
+        <a href="#">Support</a>
+        <div id="signing">
+            <a href="./login.html">Logout</a>
+        </div>
+    </div>
+</div>
+<div id="header">
+    <button class="openbtn" onclick="openNav()"><span class="material-symbols-outlined">menu</span></button>
+    <div id="ring_float"><img src="./images/ring_float.svg"></div>
+    <h1>LifeLine</h1>
+</div>
 
-    <!-- Main Section-->
+    <div id="contact-form">
+      <h2>Contact Us</h2>
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Your name..">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="Your email..">
+
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Write something.." style="height:200px"></textarea>
+
+        <button class="submit">Send</button>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Footer Section -->
-    <nav id="footerPlaceholder"></nav>
-
+<footer class="navbar justify-content-evenly bg-info fixed-bottom" style="background-color: #ee6c4d!important;">
+    <div class="container py-2">
+        <a href="./main.html" style="text-decoration: none;"><span class="material-symbols-outlined">home</span></a>
+        <span class="material-symbols-outlined">bookmarks</span>
+        <span class="material-symbols-outlined">notifications</span>
+    </div>
+</footer>
 
     <!-- Our own Javascript Files -->
     <script src="./scripts/firebaseAPI_DTC09.js"></script>
