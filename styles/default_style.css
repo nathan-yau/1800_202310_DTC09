@@ -160,7 +160,6 @@ body {
     'opsz' 48
   }
 
-
 .footer {
     position: fixed;
     left: 0;
@@ -169,7 +168,6 @@ body {
     background-color:#E8E8E6 !important;
     color: white;
     text-align: center;
-    padding: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2) !important;
 }
 
