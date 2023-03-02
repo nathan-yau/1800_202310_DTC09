@@ -1,0 +1,41 @@
+body {
+    color: #ccc;
+
+}
+
+#contact-form {
+
+    padding: 20px;
+    margin: 50px auto;
+    width: 400px;
+}
+
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.submit {
+    background-color: #f51115;
+    color: white;
+    font-weight: bold;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 20px;
+    border: 1px solid #1A659E;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.submit:hover {
+    background-color: green
+}
