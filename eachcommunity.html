@@ -47,18 +47,34 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- Main Section-->
-    <!-- Search Bar -->
     <div class="container-fluid text-dark pt-5">
         <div class="container" id="main-context">
+            <!-- Search Bar -->
             <div class="input-group pb-3 form mb-3">
                 <span class="fa-search material-symbols-outlined">location_searching</span>
                 <input type="search" class="form-control rounded customized-search" placeholder="Search"
                     aria-label="Search" aria-describedby="search-addon">
                 <button type="button" class="btn btn-outline-primary">search</button>
             </div>
+            <!-- Posts-->
             <div id="communities-go-here" class="column row-cols-auto"> </div>
             <div id="posts-go-here" class="column row-cols-auto mt-3"> </div>
+            <!-- Input form -->
+            <div id="popup">
+                <div id="contact-form">
+                    <h2 class="mt-5" style="text-align: center;">You want to share</h2>
+                    <label class="mb-3" style="display: block; margin-left: 10%">Post to the Community</label>
+                    <textarea type="text" id="postcontent" placeholder="Type here"
+                        style="width:75%; height: 75%; margin-left: 10%; display:inline-block"></textarea>
+                    <button class="submit" style="display: block;margin-left: 10%;" onclick="closePopup()">Send</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Post Button -->
+            <a href="#" onclick="openPopup()"><span class="material-symbols-outlined post-icon">draft_orders</span></a>
+            <!-- Blank Space for footer -->
             <div style="height: 70px;"></div>
+            <!-- Template below -->
             <template id="CommunityInfoPlaceholder" class="mt-5">
                 <div class="card pb-1" style="border-radius: 20px;">
                     <div class="card-body">
@@ -86,7 +102,6 @@
                     </div>
                 </div>
             </template>
-            <a href="./main.html"><span class="material-symbols-outlined post-icon">draft_orders</span></a>
         </div>
     </div>
 
