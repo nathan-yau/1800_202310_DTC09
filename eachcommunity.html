@@ -37,9 +37,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-
     <!-- Our own CSS File -->
     <link rel="stylesheet" href="./styles/default_style.css">
+    <link rel="stylesheet" href="./styles/eachCommunity.css">
 </head>
 
 <body>
@@ -47,6 +47,48 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- Main Section-->
+    <!-- Search Bar -->
+    <div class="container-fluid text-dark pt-5">
+        <div class="container" id="main-context">
+            <div class="input-group pb-3 form mb-3">
+                <span class="fa-search material-symbols-outlined">location_searching</span>
+                <input type="search" class="form-control rounded customized-search" placeholder="Search"
+                    aria-label="Search" aria-describedby="search-addon">
+                <button type="button" class="btn btn-outline-primary">search</button>
+            </div>
+            <div id="communities-go-here" class="column row-cols-auto"> </div>
+            <div id="posts-go-here" class="column row-cols-auto mt-3"> </div>
+            <div style="height: 70px;"></div>
+            <template id="CommunityInfoPlaceholder" class="mt-5">
+                <div class="card pb-1" style="border-radius: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-glow">
+                            <span class="area col-6"></span>
+                        </h5>
+                        <h6>
+                            <span class="region col-6"></span>
+                        </h6>
+                        <p class="mt-3"><span class="card-text"></span></p>
+                        <!-- <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a> -->
+                    </div>
+                </div>
+            </template>
+            <template id="CommunityPostPlaceholder">
+                <div class="card pb-5 mb-3" style="border-radius: 20px;">
+                    <div class="card-body">
+                        <h3 class="card-title placeholder-glow">
+                            <span class="title col-6"></span>
+                        </h3>
+                        <img src="" alt="" class="photo mt-3" style="width: 100%">
+                        <p class="mt-3"><span class="postcontent"></span></p>
+                        <p class="mt-3"><span class="timestamp"></span></p>
+                        <!-- <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a> -->
+                    </div>
+                </div>
+            </template>
+            <a href="./main.html"><span class="material-symbols-outlined post-icon">draft_orders</span></a>
+        </div>
+    </div>
 
     <!-- Footer Section -->
     <nav id="footerPlaceholder"></nav>
@@ -55,6 +97,7 @@
     <!-- Our own Javascript Files -->
     <script src="./scripts/firebaseAPI_DTC09.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/eachCommunity.js"></script>
 </body>
 
 </html>

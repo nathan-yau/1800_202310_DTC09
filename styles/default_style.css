@@ -139,3 +139,11 @@ body {
     width: "50px";
     margin-right: 10px;
 }
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 700,
+    'GRAD' 200,
+    'opsz' 48
+  }
