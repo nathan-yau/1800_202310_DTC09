@@ -10,11 +10,11 @@ body {
     z-index: 5000;
     top: 0;
     right: 0;
-    background-color: #1A659E;
+    background-color: #00cbad;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2); */
 }
 
 .sidebar a {
@@ -41,7 +41,7 @@ body {
 .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: #ee6c4d;
+    background-color: transparent;
     color: white;
     padding: 10px 10px;
     border: none;
@@ -51,7 +51,8 @@ body {
 #header {
     transition: margin-left .5s;
     padding: 20px;
-    background-color: #ee6c4d;
+    background: #ff8f29;
+    /* box-shadow: 0 2px 2px -2px rgba(0,0,0,0.5); */
 }
 
 #header img {
@@ -70,11 +71,11 @@ body {
 
 .material-symbols-outlined {
     color: white;
-    font-size: 36px;
+    font-size: 38px;
     font-variation-settings:
         'FILL' 0,
         'wght' 500,
-        'GRAD' 0,
+        'GRAD' 150,
         'opsz' 48
 }
 
@@ -147,3 +148,31 @@ body {
     'GRAD' 200,
     'opsz' 48
   }
+
+  
+.material-symbols-rounded {
+    color: #7A7A79;
+    font-size: 38px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 150,
+    'opsz' 48
+  }
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#E8E8E6 !important;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2) !important;
+}
+
+.footer :hover {
+   color:#ff8f29;
+}
