@@ -1,0 +1,30 @@
+.redirect {
+    margin-top: 100px;
+    text-align: center;
+    justify-content: center;
+    border: 2px solid;
+    border-radius: 12px;
+    border-color: #f51115;
+    margin-left: 100px;
+    margin-right: 100px;
+    /* display: inline-block; */
+}
+
+#p1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#p2 {
+    font-size: 20px;
+    color: gray;
+    margin-top: 20px;
+}
+
+#p3 {
+    font-size: 15px;
+    color: gray;
+    margin-top: 20px;
+    text-align: center;
+}
