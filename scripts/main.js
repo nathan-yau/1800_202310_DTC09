@@ -20,7 +20,7 @@ function displayCardsDynamically(collection) {
             newcard.querySelector('.area').innerHTML = area + " (" + postal_code + ")";
             newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
             // newcard.querySelector('.card-text').innerHTML = details;
-            newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
+            newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
             if (region == "Metro Vancouver") {
                 document.getElementById(collection + "-go-here").appendChild(newcard);
                 i++;
