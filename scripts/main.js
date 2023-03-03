@@ -36,7 +36,7 @@ function page_distribution() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             console.log($('#mainPlaceholder').load('./text/main_after_login.html'));
-            displayCardsDynamically("communities");
+            // displayCardsDynamically("communities");
         } else {
             console.log($('#mainPlaceholder').load('./text/main_before_login.html'));
         }
