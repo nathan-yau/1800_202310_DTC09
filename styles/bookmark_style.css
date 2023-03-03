@@ -19,15 +19,65 @@ main h3 {
   font-size: 1.5rem;
 }
 
-/* #card {
+#card {
   border-radius: 20px;
-  margin-bottom: 20px;
-} */
+  /* margin-bottom: 20px; */
+}
 
-/* #img {
-  margin-top: 10px
-} */
+#img {
+  object-fit: cover;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 20px;
+}
 
 h5 {
   margin-bottom: -10px;
 }
+
+.card-footer {
+  background-color: white;
+}
+
+.card-footer .material-symbols-rounded {
+  color: #7A7A79;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.card-footer .remove-btn :hover {
+  color: #ff8f29;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.card-footer button{
+  background-color: transparent;
+  border: none;
+  float: right;
+}
+
+#bookmarks_icon {
+  color: #ff8f29;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+#home_icon {
+  color: #7A7A79;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+

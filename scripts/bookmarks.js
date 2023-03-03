@@ -1,23 +1,25 @@
-function writeBookmark(picture, title, description) {
+function writeBookmark(picture, title, description, timestamp, author) {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             db.collection("users").doc(user.uid).update({
                 bookmark: firebase.firestore.FieldValue.arrayUnion({
                     title: title, 
                     picture: picture, 
-                    description: description
+                    description: description,
+                    timestamp: timestamp,
+                    author: author
                 })
             });
         }
     });
 }
 
-// writeBookmark("heavy_snow", "Snowing in Vancouver", "Enim ut tellus elementum sagittis vitae et leo duis ut. Mattis aliquam faucibus purus in. Placerat vestibulum lectus mauris ultrices eros. Lectus nulla at volutpat diam ut venenatis tellus. ");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor", "Integer quis auctor elit sed vulputate mi sit amet mauris. Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor", "Lorem ipsum dolor sit amet, ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor", "Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor", "Integer quis auctor elit sed vulputate mi sit amet mauris. Aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.");
+// writeBookmark("heavy_snow", "Care stuck. Need help!", "Enim ut tellus elementum sagittis vitae et leo duis ut. Mattis aliquam faucibus purus in. Placerat vestibulum lectus mauris ultrices eros. Lectus nulla at volutpat diam ut venenatis tellus.", "2020-12-12 12:12:12", "Adam Smith");
+// writeBookmark("heavy_snow", "Heavy snowing! DO NOT GO OUTSIDE", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "2020-12-12 12:12:12", "Adam Smith");
+// writeBookmark("heavy_snow", "Lorem ipsum dolor1", "Integer quis auctor elit sed vulputate mi sit amet mauris. Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
+// writeBookmark("heavy_snow", "Lorem ipsum dolor2", "Lorem ipsum dolor sit amet, ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","2020-12-12 12:12:12", "Adam Smith");
+// writeBookmark("heavy_snow", "Lorem ipsum dolor3", "Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
+// writeBookmark("heavy_snow", "Lorem ipsum dolor4", "Integer quis auctor elit sed vulputate mi sit amet mauris. Aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
 
 
 function displayBookmark() {
@@ -26,16 +28,21 @@ function displayBookmark() {
             let bookmarkTemplate = document.getElementById("bookmarkTemplate");
             currentUser = db.collection("users").doc(user.uid);
             currentUser.get().then(userDoc => {
+                console.log(JSON.stringify(userDoc))
                 let bookmarkList= userDoc.data().bookmark;
                 bookmarkList.forEach(bookmark => {
                     let title = bookmark.title;
                     let picture = bookmark.picture;
                     let description = bookmark.description;
+                    let timestamp = bookmark.timestamp;
+                    let author = bookmark.author;
                     let newBookmark = bookmarkTemplate.content.cloneNode(true);
 
                     newBookmark.querySelector(".bookmark-title").innerText = title;
                     newBookmark.querySelector('.bookmark-image').src = `./images/${picture}.jpg`;
                     newBookmark.querySelector('.bookmark-text').innerHTML = description;
+                    newBookmark.querySelector('.bookmark-timestamp').innerHTML = timestamp;
+                    newBookmark.querySelector('.bookmark-author').innerHTML = author;
                     newBookmark.querySelector('.remove-btn').value = title;
 
                     document.getElementById("bookmarks").appendChild(newBookmark);

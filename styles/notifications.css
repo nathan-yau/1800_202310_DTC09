@@ -42,3 +42,22 @@
     background-color: white;
     color: #1A659E;
 }
+
+#notifications_icon {
+    color: #ff8f29;
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+  
+#home_icon {
+    color: #7A7A79;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+  

@@ -173,4 +173,9 @@ body {
 
 .footer :hover {
    color:#ff8f29;
+   font-variation-settings:
+   'FILL' 1,
+   'wght' 400,
+   'GRAD' 150,
+   'opsz' 48
 }

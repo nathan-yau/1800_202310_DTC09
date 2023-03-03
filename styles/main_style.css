@@ -14,3 +14,13 @@
 .customized-search {
     text-indent: 45px;
 }
+
+#home_icon {
+    color: #ff8f29;
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+  

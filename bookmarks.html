@@ -49,29 +49,38 @@
     <!-- Main -->
     <nav id="mainPlaceholder"></nav>
     <main>
-        <div class="container">
+        <div class="container-fluid">
             <!-- <h3>Bookmarks</h3> -->
             <!-- Here is the container for bookmarks  -->
-            <div class="container">
-                <div id="bookmarks">
+            <div class="container-fluid">
+                <div id="bookmarks" class="row mx-4">
                 </div>
             </div>
         </div>
-            <template id="bookmarkTemplate">
-                <div id="card" class="card mb-4 border-0 shadow-sm bg-white rounded">
-                    <img id="img" class="bookmark-image card-img-top" src="..." alt="..." />
-                    <div class="card-body">
-                        <h5 class="bookmark-title">Bookmark title</h5>
-                        <br>
-                        <p class="bookmark-text">
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </p>
-                        <button class="btn remove-btn btn-secondary card-href" onclick="removeBookmark(this.value)">Remove My Bookmark</button>
-                        <!-- <a class="btn btn-primary card-href">Read more ...</a> -->
+        <template id="bookmarkTemplate">
+            <div id="card" class="col-lg-4 card m-3 border-0 shadow-sm bg-white">
+                <img id="img" class="bookmark-image card-img-top" src="..." alt="..."/>
+                <div class="card-body">
+                    <h5 class="bookmark-title">Bookmark title</h5>
+                    <br />
+                    <p class="bookmark-text">
+                        Some quick example text to build on the card title and make up the
+                        bulk of the card's content.
+                    </p>
+                    <div style="display: flex; flex-direction: row; justify-content:center;">
+                        <p class="bookmark-timestamp">Time stamp</p>
+                        <p style = "padding-left: 10px;" class="bookmark-author">Author</p>
                     </div>
+                    <!-- <p class="mt-3"><span class="bookmark-timestamp"></span></p>
+                    <p class="mt-3"><span class="bookmark-author"></span></p> -->
+                    <!-- <button class="btn remove-btn btn-secondary card-href" onclick="removeBookmark(this.value)">Remove My Bookmark</button> -->
+                    <div class="card-footer">
+                        <button style = "flex-basis: 20%;" class="remove-btn" onclick="removeBookmark(this.value)"><span class="material-symbols-rounded">bookmark_remove</span></button>
+                    </div>
+                    <!-- <a class="btn btn-primary card-href">Read more ...</a> -->
                 </div>
-            </template>
+            </div>
+        </template>
     </main>
     
 
