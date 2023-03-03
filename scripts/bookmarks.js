@@ -14,7 +14,7 @@ function writeBookmark(picture, title, description, timestamp, author) {
     });
 }
 
-// writeBookmark("heavy_snow", "Care stuck. Need help!", "Enim ut tellus elementum sagittis vitae et leo duis ut. Mattis aliquam faucibus purus in. Placerat vestibulum lectus mauris ultrices eros. Lectus nulla at volutpat diam ut venenatis tellus.", "2020-12-12 12:12:12", "Adam Smith");
+// writeBookmark("heavy_snow", "Car stuck. Need help!", "Enim ut tellus elementum sagittis vitae et leo duis ut. Mattis aliquam faucibus purus in. Placerat vestibulum lectus mauris ultrices eros. Lectus nulla at volutpat diam ut venenatis tellus.", "2020-12-12 12:12:12", "Adam Smith");
 // writeBookmark("heavy_snow", "Heavy snowing! DO NOT GO OUTSIDE", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "2020-12-12 12:12:12", "Adam Smith");
 // writeBookmark("heavy_snow", "Lorem ipsum", "Integer quis auctor elit sed vulputate mi sit amet mauris. Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
 // writeBookmark("heavy_snow", "Lorem ipsum sit", "Lorem ipsum dolor sit amet, ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","2020-12-12 12:12:12", "Adam Smith");
