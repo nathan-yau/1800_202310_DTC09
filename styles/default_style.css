@@ -80,7 +80,7 @@ body {
 }
 
 #main {
-    padding: 20px;
+    padding: 150px;
     justify-content: center;
     text-align: center;
 }
@@ -93,9 +93,8 @@ body {
 }
 
 #main {
-    align-items: center;
-    padding: 100px 0;
-
+    margin: auto;
+    
 }
 
 #banner {
@@ -108,6 +107,7 @@ body {
     color: gray;
     font-size: 20px;
     margin-top: 20px;
+    margin-bottom: -110px;
 }
 
 .login-div {
@@ -115,26 +115,33 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
+.login-div-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    padding: 120px
+}
 
 .login {
     padding: 10px 80px;
     margin-bottom: 30px;
-    background-color: #b3f0ff;
+    /* background-color: #b3f0ff;
     border-radius: 30px;
     display: block;
     align-items: center;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-    text-shadow: white 1px 2px;
+    text-shadow: white 1px 2px; */
 }
 
-.login:hover {
+/* .login:hover {
     background-color: rgb(230, 229, 229);
-}
+} */
 
 #ring_float img {
     width: "50px";
@@ -149,7 +156,6 @@ body {
     'opsz' 48
   }
 
-  
 .material-symbols-rounded {
     color: #7A7A79;
     font-size: 38px;
@@ -179,3 +185,29 @@ body {
    'GRAD' 150,
    'opsz' 48
 }
+
+.cta_btn {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    background-color: #2999FF;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+}
+
+.cta_btn:hover {
+    background-color: #1e83e1;
+}
+
