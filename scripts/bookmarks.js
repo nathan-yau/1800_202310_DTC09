@@ -16,11 +16,10 @@ function writeBookmark(picture, title, description, timestamp, author) {
 
 // writeBookmark("heavy_snow", "Care stuck. Need help!", "Enim ut tellus elementum sagittis vitae et leo duis ut. Mattis aliquam faucibus purus in. Placerat vestibulum lectus mauris ultrices eros. Lectus nulla at volutpat diam ut venenatis tellus.", "2020-12-12 12:12:12", "Adam Smith");
 // writeBookmark("heavy_snow", "Heavy snowing! DO NOT GO OUTSIDE", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "2020-12-12 12:12:12", "Adam Smith");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor1", "Integer quis auctor elit sed vulputate mi sit amet mauris. Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor2", "Lorem ipsum dolor sit amet, ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","2020-12-12 12:12:12", "Adam Smith");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor3", "Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor4", "Integer quis auctor elit sed vulputate mi sit amet mauris. Aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
-
+// writeBookmark("heavy_snow", "Lorem ipsum", "Integer quis auctor elit sed vulputate mi sit amet mauris. Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
+// writeBookmark("heavy_snow", "Lorem ipsum sit", "Lorem ipsum dolor sit amet, ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","2020-12-12 12:12:12", "Adam Smith");
+// writeBookmark("heavy_snow", "Lorem ipsum elit", "Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
+// writeBookmark("heavy_snow", "Lorem ipsum dolor", "Integer quis auctor elit sed vulputate mi sit amet mauris. Aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
 
 function displayBookmark() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -54,16 +53,9 @@ function displayBookmark() {
 
 displayBookmark()
 
-
 function removeBookmark(title) {
     firebase.auth().onAuthStateChanged(async function(user) {
         if (user) {
-            // get the bookmark list
-            // iterate through the list
-            // if the title matches the title of the bookmark
-            // remove the bookmark
-            // save array back to user
-
             currentUser = db.collection("users").doc(user.uid);
             let userDoc = await currentUser.get()
             let bookmarkList= userDoc.data().bookmark;
@@ -73,7 +65,7 @@ function removeBookmark(title) {
                 }
             });
 
-            console.log(bookmarkList);
+            // console.log(bookmarkList);
 
             await db.collection("users").doc(user.uid).update({
                 bookmark: bookmarkList
@@ -82,9 +74,7 @@ function removeBookmark(title) {
             });
 
             location.reload();
-            console.log("Bookmark has been removed successfully");
-            
+            // console.log("Bookmark has been removed successfully");
         }
     });
-    
 }
