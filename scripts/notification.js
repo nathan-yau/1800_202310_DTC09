@@ -39,13 +39,13 @@ function add_subscription() {
         currentUser = db.collection("users").doc(UserID);
         currentUser.get().then(userDoc => {
             var subscription = userDoc.data().subscription;
+            console.log(subscription)
             if (subscription == 0) {
                 var inputEmail = $("#email").val()
                 db.collection("users").doc(UserID).set({
                     subscription: true,
                     subscription_email: inputEmail,
-                    email: firebase.auth().currentUser.email
-                })
+                }, { merge: true });
                 $(".subscription-area").children().remove()
                 $(".subscription-area").html(
                     `<h1 class="header">You have scubscribed to LifeLine! </h1> 

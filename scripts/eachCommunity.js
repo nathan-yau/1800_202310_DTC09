@@ -36,20 +36,21 @@ function displayCommunityPostDynamically(collection) {
         .get()
         .then((allPost) => {
             allPost.forEach((doc) => {
-                console.log(doc.data())
                 var title = doc.data().title
-                var photo = doc.data().photo
+                var picture = doc.data().picture
                 var postcontent = doc.data().postcontent
-                var user = doc.data().user
+                var author = doc.data().author
                 var timestamp = doc.data().timestamp
                 let newcard = cardTemplate.content.cloneNode(true);
                 var d = new Date(timestamp.seconds * 1000)
+                var postID = doc.id
                 // //update title and text and image
                 newcard.querySelector('.title').innerHTML = title;
-                newcard.querySelector('.photo').src = photo;
+                newcard.querySelector('.picture').src = picture;
                 newcard.querySelector('.postcontent').innerHTML = postcontent;
                 newcard.querySelector('.timestamp').innerHTML = "Posted: " + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " +
-                    d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + " By " + user;
+                    d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + " By " + author;
+                newcard.querySelector('.bookmark').setAttribute('id', postID)
                 // // newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
                 document.getElementById(collection + "-go-here").appendChild(newcard);
             });
@@ -59,17 +60,46 @@ function displayCommunityPostDynamically(collection) {
 
 let popup = document.getElementById("popup")
 
-function openPopup(){
+function openPopup() {
     popup.classList.add("open-popup")
 }
 
-function closePopup(){
+function closePopup() {
     popup.classList.remove("open-popup")
 }
 
-function bookmark(){
-    console.log("Bookmarked!")
-}
+function bookmark() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var postid = event.currentTarget.id
+            db.collection('posts').where(firebase.firestore.FieldPath.documentId(), "==", postid)
+                .get()
+                .then((allPost) => {
+                    allPost.forEach((doc) => {
+                        var title = doc.data().title
+                        var picture = doc.data().picture
+                        var postcontent = doc.data().postcontent
+                        var author = doc.data().author
+                        var timestamp = doc.data().timestamp
+                        db.collection("users").doc(user.uid).update({
+                            bookmark: firebase.firestore.FieldValue.arrayUnion({
+                                title: title, 
+                                picture: picture, 
+                                postcontent: postcontent,
+                                timestamp: timestamp,
+                                author: author,
+                                postID: postid
+                            })
+                            })
+                        });
+                    }).then(function () {
+                        console.log("Bookmark added.")
+                        $(`#${postid}`).html(`                            
+                        <span id="bookmarks_icon" class="material-symbols-rounded" style="font-size:15px;">bookmarks</span>
+                        <span style="font-size:15px">Bookmark added! </span>`)
+                    })
+        }});
+        }
 
-displayCommunityDescriptionDynamically("communities");
-displayCommunityPostDynamically("posts");
+        displayCommunityDescriptionDynamically("communities");
+        displayCommunityPostDynamically("posts");

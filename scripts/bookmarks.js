@@ -1,26 +1,3 @@
-function writeBookmark(picture, title, description, timestamp, author) {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            db.collection("users").doc(user.uid).update({
-                bookmark: firebase.firestore.FieldValue.arrayUnion({
-                    title: title, 
-                    picture: picture, 
-                    description: description,
-                    timestamp: timestamp,
-                    author: author
-                })
-            });
-        }
-    });
-}
-
-// writeBookmark("heavy_snow", "Car stuck. Need help!", "Enim ut tellus elementum sagittis vitae et leo duis ut. Mattis aliquam faucibus purus in. Placerat vestibulum lectus mauris ultrices eros. Lectus nulla at volutpat diam ut venenatis tellus.", "2020-12-12 12:12:12", "Adam Smith");
-// writeBookmark("heavy_snow", "Heavy snowing! DO NOT GO OUTSIDE", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "2020-12-12 12:12:12", "Adam Smith");
-// writeBookmark("heavy_snow", "Lorem ipsum", "Integer quis auctor elit sed vulputate mi sit amet mauris. Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
-// writeBookmark("heavy_snow", "Lorem ipsum sit", "Lorem ipsum dolor sit amet, ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","2020-12-12 12:12:12", "Adam Smith");
-// writeBookmark("heavy_snow", "Lorem ipsum elit", "Ut sem viverra aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
-// writeBookmark("heavy_snow", "Lorem ipsum dolor", "Integer quis auctor elit sed vulputate mi sit amet mauris. Aliquet eget sit amet tellus cras. Quisque id diam vel quam elementum pulvinar etiam non quam. Massa eget egestas purus viverra accumsan.", "2020-12-12 12:12:12", "Adam Smith");
-
 function displayBookmark() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -32,17 +9,20 @@ function displayBookmark() {
                 bookmarkList.forEach(bookmark => {
                     let title = bookmark.title;
                     let picture = bookmark.picture;
-                    let description = bookmark.description;
+                    let postcontent = bookmark.postcontent;
                     let timestamp = bookmark.timestamp;
                     let author = bookmark.author;
+                    var d = new Date(timestamp.seconds * 1000)
+                    var postID = bookmark.postID
                     let newBookmark = bookmarkTemplate.content.cloneNode(true);
 
                     newBookmark.querySelector(".bookmark-title").innerText = title;
-                    newBookmark.querySelector('.bookmark-image').src = `./images/${picture}.jpg`;
-                    newBookmark.querySelector('.bookmark-text').innerHTML = description;
-                    newBookmark.querySelector('.bookmark-timestamp').innerHTML = timestamp;
+                    newBookmark.querySelector('.bookmark-image').src = `${picture}`;
+                    newBookmark.querySelector('.bookmark-text').innerHTML = postcontent;
+                    newBookmark.querySelector('.bookmark-timestamp').innerHTML = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " +
+                    d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
                     newBookmark.querySelector('.bookmark-author').innerHTML = author;
-                    newBookmark.querySelector('.remove-btn').value = title;
+                    newBookmark.querySelector('.remove-btn').value = postID;
 
                     document.getElementById("bookmarks").appendChild(newBookmark);
                 });
@@ -53,14 +33,14 @@ function displayBookmark() {
 
 displayBookmark()
 
-function removeBookmark(title) {
+function removeBookmark(postID) {
     firebase.auth().onAuthStateChanged(async function(user) {
         if (user) {
             currentUser = db.collection("users").doc(user.uid);
             let userDoc = await currentUser.get()
             let bookmarkList= userDoc.data().bookmark;
             bookmarkList.forEach(bookmark => {
-                if (bookmark.title == title) {
+                if (bookmark.postID == postID) {
                     bookmarkList.splice(bookmarkList.indexOf(bookmark), 1);
                 }
             });
