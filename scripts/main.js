@@ -1,7 +1,7 @@
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("communityPlaceholder");
 
-    db.collection(collection).get().then(allCommunity => {
+    db.collection(collection).where("region", "==", "Metro Vancouver").limit(5).get().then(allCommunity => {
         var i = 1;  //Optional: if you want to have a unique ID for each hike
         allCommunity.forEach(doc => { //iterate thru each doc
             var area = doc.data().area;
@@ -21,13 +21,7 @@ function displayCardsDynamically(collection) {
             newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
             // newcard.querySelector('.card-text').innerHTML = details;
             newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
-            if (region == "Metro Vancouver") {
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-                i++;
-            }
-            if (i > 10) {
-                throw 'Break';
-            }
+            document.getElementById(collection + "-go-here").appendChild(newcard);
         })
     })
 }
@@ -36,7 +30,7 @@ function page_distribution() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             console.log($('#mainPlaceholder').load('./text/main_after_login.html'));
-            // displayCardsDynamically("communities");
+            displayCardsDynamically("communities");
         } else {
             console.log($('#mainPlaceholder').load('./text/main_before_login.html'));
         }
