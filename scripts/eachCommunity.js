@@ -67,5 +67,9 @@ function closePopup(){
     popup.classList.remove("open-popup")
 }
 
+function bookmark(){
+    console.log("Bookmarked!")
+}
+
 displayCommunityDescriptionDynamically("communities");
 displayCommunityPostDynamically("posts");

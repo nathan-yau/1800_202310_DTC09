@@ -29,13 +29,17 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Google Material Symbols Library -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <!-- Our own CSS File -->
     <link rel="stylesheet" href="./styles/default_style.css">
     <link rel="stylesheet" href="./styles/eachCommunity.css">
@@ -97,6 +101,11 @@
                         <img src="" alt="" class="photo mt-3" style="width: 100%">
                         <p class="mt-3"><span class="postcontent"></span></p>
                         <p class="mt-3"><span class="timestamp"></span></p>
+                        <div style="border: 1px solid grey; display: inline-block; padding-right: 5px; border-radius: 5px;" onclick=bookmark()>
+                            <span id="bookmarks_icon" class="material-symbols-rounded"
+                                style="font-size:15px;">bookmarks</span>
+                            <span style="font-size:15px">Bookmark this post</span>
+                        </div>
                         <!-- <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a> -->
                     </div>
                 </div>
