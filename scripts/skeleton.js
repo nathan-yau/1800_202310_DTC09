@@ -33,4 +33,15 @@ $("body").on("click", ".login", function () {
     window.location = "./login.html";
 });
 
+function logout() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        console.log("logging out user");
+        location.replace('./index.html');
+      }).catch((error) => {
+        // An error happened.
+      });
+}
+
+
 loadSkeleton();  //invoke the function
