@@ -1,0 +1,27 @@
+.login-section {
+    border: 1px solid lightslategrey;
+    width: min(75%, 500px);
+    margin: min(100px, 50%) auto;
+    border-radius: 5%;
+}
+
+.welcome-slogan {
+    border-bottom: 1px solid lightslategrey;
+}
+
+.welcome-slogan-2 {
+    margin: 0 auto;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .login-section {
+        border: none;
+    }
+
+    .welcome-slogan {
+        border-bottom: none;
+    }
+}

@@ -42,7 +42,7 @@
 
     <!-- Our own CSS File -->
     <link rel="stylesheet" href="./styles/default_style.css">
-
+    <link rel="stylesheet" href="./styles/login.css">
 </head>
 
 <body>
@@ -50,12 +50,15 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- Main Section-->
-    <div class="container mt-4" style="text-align: center; margin-bottom: 5%;">
-        <h1>Your information is just one step away.</h1>
+    <div class="login-section">
+        <div class="container mt-4 welcome-slogan" style="text-align: center; margin-bottom: 5%;">
+            <h4>Log in or sign up</h4>
+        </div>
+        <span class="welcome-slogan-2">Welcome to LifeLine</span>
+        <div id="firebaseui-auth-container" class="mt-4 mb-5"></div>
+        <div id="loader">Loading...</div>
+        <a href="./support.html" class="welcome-slogan-2 mb-5"> Need Help?</a>
     </div>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
-
     <!-- Footer Section -->
     <nav id="footerPlaceholder"></nav>
 
