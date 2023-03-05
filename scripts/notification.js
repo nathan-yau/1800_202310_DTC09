@@ -10,6 +10,20 @@ function page_redirection() {
                         `<h1 class="header">You have scubscribed to LifeLine! </h1> 
                         <h1  class="header"> Thank you for your subscription.</h1>`)
                 }
+                else {
+                    $(".subscription-area").html(
+                        `    <div class="header">
+                        <h1>Subscribe to stay updated</h1>
+                      </div>
+                  
+                      <input id="email" placeholder="Enter your email address" required>
+                  
+                      <br>
+                  
+                  
+                      <button id="subscribe" class="cta_btn">Subscribe</button>`
+                    )
+                }
             }
             )
         } else {
