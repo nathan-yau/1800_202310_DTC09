@@ -21,7 +21,8 @@ function displayCommunityDescriptionDynamically(collection) {
                 // //update title and text and image
                 newcard.querySelector('.area').innerHTML = area + " (" + postal_code + ")";
                 newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
-                newcard.querySelector('.card-text').innerHTML = "Number of posts: ";
+                document.querySelector('.community_name').innerHTML = area + " (" + postal_code + ")";
+                newcard.querySelector('.card-text').innerHTML = `Number of posts: <span class="number_of_posts"></span>`;
                 // // newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
                 document.getElementById(collection + "-go-here").appendChild(newcard);
             }
@@ -32,6 +33,7 @@ function displayCommunityPostDynamically(collection) {
     let cardTemplate = document.getElementById("CommunityPostPlaceholder");
     let params = new URL(window.location.href); //get URL of search bar
     let ID = params.searchParams.get("docID"); //get value for key "id"
+    let i = 0
     db.collection(collection).where("communityid", "==", ID)
         .get()
         .then((allPost) => {
@@ -53,10 +55,40 @@ function displayCommunityPostDynamically(collection) {
                 newcard.querySelector('.bookmark').setAttribute('id', postID)
                 // // newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
                 document.getElementById(collection + "-go-here").appendChild(newcard);
+                i += 1
+                document.querySelector('.number_of_posts').innerHTML = i;
             });
         }
         )
 }
+
+function add_subscription() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            UserID = firebase.auth().currentUser.uid
+            currentUser = db.collection("users").doc(UserID);
+            let params = new URL(window.location.href);
+            let ID = params.searchParams.get("docID");
+            let postcontent = document.querySelector(".posting-content")
+            db.collection("posts").add({
+                author: firebase.auth().currentUser.displayName,
+                communityid: ID,
+                picture: "https://i.ytimg.com/vi/VPRLDDnCU9o/maxresdefault.jpg",
+                postcontent: postcontent.textContent.trim(),
+                title: $(".posting-title").val(),
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(
+                $("#contact-form").children().remove(),
+                $("#contact-form").html(
+                    `<a href="javascript:void(0)" class="closepost" onclick="closePopup()">×</a>
+                    <h2>Thank you for sharing with us.</h2>`
+                )
+            )
+        }
+    })
+}
+
+
 
 let popup = document.getElementById("popup")
 
@@ -83,23 +115,24 @@ function bookmark() {
                         var timestamp = doc.data().timestamp
                         db.collection("users").doc(user.uid).update({
                             bookmark: firebase.firestore.FieldValue.arrayUnion({
-                                title: title, 
-                                picture: picture, 
+                                title: title,
+                                picture: picture,
                                 postcontent: postcontent,
                                 timestamp: timestamp,
                                 author: author,
                                 postID: postid
                             })
-                            })
-                        });
-                    }).then(function () {
-                        console.log("Bookmark added.")
-                        $(`#${postid}`).html(`                            
+                        })
+                    });
+                }).then(function () {
+                    console.log("Bookmark added.")
+                    $(`#${postid}`).html(`                            
                         <span id="bookmarks_icon" class="material-symbols-rounded" style="font-size:15px;">bookmarks</span>
                         <span style="font-size:15px">Bookmark added! </span>`)
-                    })
-        }});
+                })
         }
+    });
+}
 
-        displayCommunityDescriptionDynamically("communities");
-        displayCommunityPostDynamically("posts");
+displayCommunityDescriptionDynamically("communities");
+displayCommunityPostDynamically("posts");
