@@ -69,12 +69,11 @@ function add_post() {
             currentUser = db.collection("users").doc(UserID);
             let params = new URL(window.location.href);
             let ID = params.searchParams.get("docID");
-            let postcontent = document.querySelector(".posting-content")
             db.collection("posts").add({
                 author: firebase.auth().currentUser.displayName,
                 communityid: ID,
                 picture: "https://i.ytimg.com/vi/VPRLDDnCU9o/maxresdefault.jpg",
-                postcontent: postcontent.textContent.trim(),
+                postcontent: $(".posting-content").val(),
                 title: $(".posting-title").val(),
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             }).then(
