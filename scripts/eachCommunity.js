@@ -34,7 +34,7 @@ function displayCommunityPostDynamically(collection) {
     let params = new URL(window.location.href); //get URL of search bar
     let ID = params.searchParams.get("docID"); //get value for key "id"
     let i = 0
-    db.collection(collection).where("communityid", "==", ID)
+    db.collection(collection).where("communityid", "==", ID)//.orderBy("timestamp")
         .get()
         .then((allPost) => {
             allPost.forEach((doc) => {
