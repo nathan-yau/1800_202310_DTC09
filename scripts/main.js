@@ -4,16 +4,16 @@ function displayCardsDynamically(collection) {
     db.collection(collection).where("region", "==", "Metro Vancouver").limit(5).get().then(allCommunity => {
         var i = 1;  //Optional: if you want to have a unique ID for each hike
         allCommunity.forEach(doc => { //iterate thru each doc
-            var area = doc.data().area;
-            var country = doc.data().country;
-            var latitude = doc.data().latitude;
-            var longitude = doc.data().longitude;
-            var place = doc.data().place;
-            var postal_code = doc.data().postal_code;
-            var province = doc.data().province;
-            var region = doc.data().region;
+            let area = doc.data().area;
+            let country = doc.data().country;
+            let latitude = doc.data().latitude;
+            let longitude = doc.data().longitude;
+            let place = doc.data().place;
+            let postal_code = doc.data().postal_code;
+            let province = doc.data().province;
+            let region = doc.data().region;
             // var details = doc.data().details;  // get value of the "details" key
-            var docID = doc.id;
+            let docID = doc.id;
             let newcard = cardTemplate.content.cloneNode(true);
 
             //update title and text and image
