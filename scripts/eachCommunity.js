@@ -62,7 +62,7 @@ function displayCommunityPostDynamically(collection) {
         )
 }
 
-function add_subscription() {
+function add_post() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             UserID = firebase.auth().currentUser.uid
