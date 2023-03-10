@@ -26,6 +26,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Google Material Symbols Library -->
@@ -72,14 +73,15 @@
                     <input type="text" name="title" placeholder="Title" class="mb-3 popup-post posting-title">
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1" class="popup-post" style="background-color: unset; margin-bottom: 0px;">Things you want to share:</label>
-                        <textarea class="form-control mt-1 popup-post mb-3 posting-content" rows="3"></textarea>
+                        <textarea class="form-control mt-1 popup-post mb-3 posting-content" rows="7"></textarea>
                     </div>
-                    <p class="popup-post" style="background-color: unset;">Upload photos </p>
+                    <p class="popup-post" style="background-color: unset;">Upload photos:</p>
                     <div style="display: flex;justify-content: flex-start;">
-                        <p class="upload" onclick="">Upload</p>
+                        <input class="upload" type="file" id="mypic-input" accept="image/*" />
                     </div>
+                    <!-- <img id="mypic-goes-here" width=100 height=100 /> -->
                     <div style="display: flex;justify-content: flex-end;">
-                        <p class="submit" onclick="add_post()">Submit</p>
+                        <p class="submit_btn" onclick="add_post()">Submit</p>
                     </div>
                     </form>
                 </div>

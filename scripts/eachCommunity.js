@@ -62,6 +62,21 @@ function displayCommunityPostDynamically(collection) {
         )
 }
 
+var ImageFile;
+function listenFileSelect() {
+      // listen for file selection
+      var fileInput = document.getElementById("mypic-input"); // pointer #1
+      const image = document.getElementById("mypic-goes-here"); // pointer #2
+
+			// When a change happens to the File Chooser Input
+      fileInput.addEventListener('change', function (e) {
+          ImageFile = e.target.files[0];   //Global variable
+          var blob = URL.createObjectURL(ImageFile);
+          image.src = blob; // Display this image
+      })
+}
+listenFileSelect();
+
 function add_post() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -72,22 +87,50 @@ function add_post() {
             db.collection("posts").add({
                 author: firebase.auth().currentUser.displayName,
                 communityid: ID,
-                picture: "https://i.ytimg.com/vi/VPRLDDnCU9o/maxresdefault.jpg",
+                // picture: "https://i.ytimg.com/vi/VPRLDDnCU9o/maxresdefault.jpg",
                 postcontent: $(".posting-content").val(),
                 title: $(".posting-title").val(),
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            }).then(
+            }).then((doc) => {  
+                uploadPic(doc.id),
                 $("#contact-form").children().remove(),
                 $("#contact-form").html(
                     `<a href="javascript:void(0)" class="closepost" onclick="closePopup()">×</a>
                     <h2>Thank you for sharing with us.</h2>`
                 )
-            )
+                })
         }
     })
 }
 
+function uploadPic(postDocID) {
+    console.log("inside uploadPic " + postDocID);
+    var storageRef = storage.ref("images/" + postDocID + ".jpg");
 
+    storageRef.put(ImageFile)   //global variable ImageFile
+       
+                   // AFTER .put() is done
+        .then(function () {
+            console.log('Uploaded to Cloud Storage.');
+            storageRef.getDownloadURL()
+
+                 // AFTER .getDownloadURL is done
+                .then(function (url) { // Get URL of the uploaded file
+                    console.log("Got the download URL.");
+                    db.collection("posts").doc(postDocID).update({
+                            "picture": url // Save the URL into users collection
+                        })
+
+                         // AFTER .update is done
+                        .then(function () {
+                            console.log('Added pic URL to Firestore.');
+                        })
+                })
+        })
+        .catch((error) => {
+             console.log("error uploading to cloud storage");
+        })
+}
 
 let popup = document.getElementById("popup")
 
