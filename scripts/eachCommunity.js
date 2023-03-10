@@ -175,6 +175,29 @@ function bookmark() {
         }
     });
 }
+function displayDiscordChannel(channelId) {
+    const apiUrl = `https://discord.com/api/channels/${1083823868541665311}/messages`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const messages = data.reverse(); // reverse the array so the newest messages appear at the top
+            const container = document.getElementById('discord-channel');
+
+            messages.forEach(message => {
+                const author = message.author.username;
+                const content = message.content;
+                const timestamp = new Date(message.timestamp).toLocaleString();
+
+                const messageElement = document.createElement('div');
+                messageElement.innerHTML = `<strong>${author}</strong> ${content} <em>${timestamp}</em>`;
+                container.appendChild(messageElement);
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
 
 displayCommunityDescriptionDynamically("communities");
 displayCommunityPostDynamically("posts");
