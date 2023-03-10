@@ -48,7 +48,7 @@ function add_subscription() {
                 }, { merge: true });
                 $(".subscription-area").children().remove()
                 $(".subscription-area").html(
-                    `<h1 class="header">You have scubscribed to LifeLine! </h1> 
+                    `<h1 class="header">You have subscribed to LifeLine! </h1> 
                     <h1  class="header"> Thank you for your subscription.</h1>`)
             }
         }
