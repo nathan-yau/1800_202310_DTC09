@@ -169,8 +169,8 @@ function bookmark() {
                 }).then(function () {
                     console.log("Bookmark added.")
                     $(`#${postid}`).html(`                            
-                        <span id="bookmarks_icon" class="material-symbols-rounded" style="font-size:15px;">bookmarks</span>
-                        <span style="font-size:15px">Bookmark added! </span>`)
+                        <span id="bookmarks_icon_small" class="material-symbols-rounded" style="font-size:16px; padding-top: 5px;">bookmarks</span>
+                        <span style="font-size:12px">Bookmark added! </span>`)
                 })
         }
     });
