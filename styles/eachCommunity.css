@@ -162,7 +162,9 @@ body {
   }
 
 #discord-widget {
-    width: 100%;
-    height: 100x;
+    width: 30%;
+    height: 10%;
     border: none;
+    float:right;
+    
 }
