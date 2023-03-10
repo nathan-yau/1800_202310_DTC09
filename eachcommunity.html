@@ -26,6 +26,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Google Material Symbols Library -->
@@ -72,14 +73,15 @@
                     <input type="text" name="title" placeholder="Title" class="mb-3 popup-post posting-title">
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1" class="popup-post" style="background-color: unset; margin-bottom: 0px;">Things you want to share:</label>
-                        <textarea class="form-control mt-1 popup-post mb-3 posting-content" rows="3"></textarea>
+                        <textarea class="form-control mt-1 popup-post mb-3 posting-content" rows="7"></textarea>
                     </div>
-                    <p class="popup-post" style="background-color: unset;">Upload photos </p>
+                    <p class="popup-post" style="background-color: unset;">Upload photos:</p>
                     <div style="display: flex;justify-content: flex-start;">
-                        <p class="upload" onclick="">Upload</p>
+                        <input class="upload" type="file" id="mypic-input" accept="image/*" />
                     </div>
+                    <!-- <img id="mypic-goes-here" width=100 height=100 /> -->
                     <div style="display: flex;justify-content: flex-end;">
-                        <p class="submit" onclick="add_post()">Submit</p>
+                        <p class="submit_btn" onclick="add_post()">Submit</p>
                     </div>
                     </form>
                 </div>
@@ -90,10 +92,10 @@
             <div style="height: 70px;"></div>
             <!-- Template below -->
             <template id="CommunityInfoPlaceholder" class="mt-5">
-                <div class="card pb-1" style="border-radius: 20px;">
+                <div class="card pb-1 border-0 shadow-sm bg-whit" style="border-radius: 20px;">
                     <div class="card-body">
                         <h5 class="card-title placeholder-glow">
-                            <span class="area col-6"></span>
+                            <span class="area col-6" style="font-weight: 700;"></span>
                         </h5>
                         <h6>
                             <span class="region col-6"></span>
@@ -104,19 +106,18 @@
                 </div>
             </template>
             <template id="CommunityPostPlaceholder">
-                <div class="card pb-5 mb-3" style="border-radius: 20px;">
+                <div class="card pb-5 mb-3 border-0 shadow-sm bg-white" style="border-radius: 20px;">
                     <div class="card-body">
                         <h3 class="card-title placeholder-glow">
-                            <span class="title col-6"></span>
+                            <span class="title col-6" style="font-weight: 600;"></span>
                         </h3>
-                        <img src="" alt="" class="picture mt-3" style="width: 100%">
+                        <img src="" alt="" class="picture mt-3" style="width: 100%;">
                         <p class="mt-3"><span class="postcontent"></span></p>
                         <p class="mt-3"><span class="timestamp"></span></p>
-                        <div style="border: 1px solid grey; display: inline-block; padding-right: 5px; border-radius: 5px;"
-                            onclick=bookmark() class="bookmark">
+                        <div onclick=bookmark() class="bookmark">
                             <span id="bookmarks_icon" class="material-symbols-rounded"
-                                style="font-size:15px;">bookmarks</span>
-                            <span style="font-size:15px">Bookmark this post</span>
+                                style="font-size:16px; padding-top: 5px;">bookmarks</span>
+                            <span style="font-size:12px;">Bookmark this post</span>
                         </div>
                         <!-- <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a> -->
                     </div>
