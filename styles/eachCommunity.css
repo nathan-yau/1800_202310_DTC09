@@ -26,10 +26,11 @@
 
 .post-icon {
     position: fixed;
-    color: black;
+    color: #ff8f29;
     bottom: 120px;
     right: 50px;
     font-size: 90px;
+    font-variation-settings:
 }
 
 #popup {
