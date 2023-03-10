@@ -161,3 +161,10 @@ body {
     'opsz' 48
   }
 
+#discord-widget {
+    width: 30%;
+    height: 10%;
+    border: none;
+    float:right;
+    
+}
