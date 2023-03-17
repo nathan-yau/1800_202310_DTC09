@@ -21,7 +21,10 @@ function displayCardsDynamically(collection) {
             newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
             // newcard.querySelector('.card-text').innerHTML = details;
             newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
+            newcard.querySelector('.map-template').innerHTML = `<div id='map-template-${i}' style='width: 100%; height: 200px;'></div>`
             document.getElementById(collection + "-go-here").appendChild(newcard);
+            showEventsOnMap(`map-template-${i}`, latitude, longitude)
+            i += 1
         })
     })
 }
@@ -36,6 +39,22 @@ function page_distribution() {
         }
     });
 
+}
+
+function showEventsOnMap(mapid, lat, long) {
+    // Defines basic mapbox data
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ';
+    const map = new mapboxgl.Map({
+        container: mapid, // Container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // Styling URL
+        center: [long, lat], // Starting position
+        zoom: 11, // Starting zoom
+        interactive: false
+    });
+
+    const marker1 = new mapboxgl.Marker()
+        .setLngLat([long, lat])
+        .addTo(map);
 }
 
 page_distribution(); //run the function

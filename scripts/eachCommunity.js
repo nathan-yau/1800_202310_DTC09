@@ -25,8 +25,25 @@ function displayCommunityDescriptionDynamically(collection) {
                 newcard.querySelector('.card-text').innerHTML = `Number of posts: <span class="number_of_posts">0</span>`;
                 // // newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
                 document.getElementById(collection + "-go-here").appendChild(newcard);
+                showEventsOnMap(`map-template`, latitude, longitude)
             }
         )
+}
+
+function showEventsOnMap(mapid, lat, long) {
+    // Defines basic mapbox data
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ';
+    const map = new mapboxgl.Map({
+        container: mapid, // Container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // Styling URL
+        center: [long, lat], // Starting position
+        zoom: 11, // Starting zoom
+        interactive: false
+    });
+
+    const marker1 = new mapboxgl.Marker()
+        .setLngLat([long, lat])
+        .addTo(map);
 }
 
 function displayCommunityPostDynamically(collection) {
