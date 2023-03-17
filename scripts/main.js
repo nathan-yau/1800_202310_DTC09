@@ -30,6 +30,7 @@ function displayCardsDynamically(collection, category, search) {
     }
     if (category == 'GPS') {
         $("#communities-go-here").children().remove()
+        $(`.section-description`).text(`Filtered Community by Current Location`)
         db.collection(collection).where("longitude", "<=", search[0]).where("longitude", ">=", search[2]).get().then(allCommunity => {
             var i = 1;  //Optional: if you want to have a unique ID for each hike
             allCommunity.forEach(doc => { //iterate thru each doc
@@ -60,7 +61,11 @@ function displayCardsDynamically(collection, category, search) {
     }
     if (category == 'search') {
         $("#communities-go-here").children().remove()
-        db.collection(collection).where("postal_code", "==", search.slice(0,3).toUpperCase()).get().then(allCommunity => {
+        if (search == "") {
+            search = "NULL"
+        }
+        $(`.section-description`).text(`Filtered Community by Postal Code ${search.toUpperCase()}`)
+        db.collection(collection).where("postal_code", "==", search.slice(0, 3).toUpperCase()).get().then(allCommunity => {
             var i = 1;  //Optional: if you want to have a unique ID for each hike
             allCommunity.forEach(doc => { //iterate thru each doc
                 let area = doc.data().area;
@@ -125,7 +130,7 @@ function search_by_user_location() {
     })
 }
 
-function search_by_postal_code(){
+function search_by_postal_code() {
     // console.log($('.customized-search').val().slice(0,3).toUpperCase())
     displayCardsDynamically("communities", 'search', $('.customized-search').val());
 }
