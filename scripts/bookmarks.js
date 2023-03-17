@@ -4,7 +4,6 @@ function displayBookmark() {
             let bookmarkTemplate = document.getElementById("bookmarkTemplate");
             currentUser = db.collection("users").doc(user.uid);
             currentUser.get().then(userDoc => {
-                console.log(JSON.stringify(userDoc))
                 let bookmarkList= userDoc.data().bookmark;
                 bookmarkList.forEach(bookmark => {
                     let title = bookmark.title;
