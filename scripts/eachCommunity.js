@@ -23,7 +23,7 @@ function displayCommunityDescriptionDynamically(collection) {
                 newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
                 document.querySelector('.community_name').innerHTML = area + " (" + postal_code + ")";
                 newcard.querySelector('.card-text').innerHTML = `Number of posts: <span class="number_of_posts">0</span>`;
-                // // newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
+                // newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
                 document.getElementById(collection + "-go-here").appendChild(newcard);
                 showEventsOnMap(`map-template`, latitude, longitude)
             }

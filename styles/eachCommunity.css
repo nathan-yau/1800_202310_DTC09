@@ -1,6 +1,7 @@
 body {
     background-color: #F8F9F9;
 }
+
 .fa-search {
     position: absolute;
     color: #9ca3af;
@@ -25,10 +26,10 @@ body {
     right: 50px;
     font-size: 90px;
     font-variation-settings:
-    'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
 }
 
 #popup {
@@ -109,7 +110,7 @@ body {
     padding: 5px;
     color: #fff;
     background-color: #2999FF;
-    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-property: background-color, border-color, color, box-shadow, filter;
     transition-duration: .3s;
 }
 
@@ -155,16 +156,21 @@ body {
 #bookmarks_icon_small {
     color: #ff8f29;
     font-variation-settings:
-    'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
-  }
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
 
 #discord-widget {
-    width: 30%;
-    height: 10%;
-    border: none;
-    float:right;
-    
+    width: 35%;
+    height: 70px;
+    float: right;
+    transition-duration: 1s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+}
+
+#discord-widget:hover {
+    height: auto;
 }
