@@ -107,7 +107,7 @@ function listenFileSelect() {
     fileInput.addEventListener('change', function (e) {
         ImageFile = e.target.files[0];   //Global variable
         var blob = URL.createObjectURL(ImageFile);
-        image.src = blob; // Display this image
+        // image.src = blob; // Display this image
     })
 }
 listenFileSelect();

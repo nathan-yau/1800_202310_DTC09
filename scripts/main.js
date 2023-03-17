@@ -28,7 +28,7 @@ function displayCardsDynamically(collection, category, search) {
             })
         })
     }
-    if (category != undefined) {
+    if (category == 'GPS') {
         $("#communities-go-here").children().remove()
         db.collection(collection).where("longitude", "<=", search[0]).where("longitude", ">=", search[2]).get().then(allCommunity => {
             var i = 1;  //Optional: if you want to have a unique ID for each hike
@@ -55,6 +55,34 @@ function displayCardsDynamically(collection, category, search) {
                     showEventsOnMap(`map-template-${i}`, latitude, longitude)
                     i += 1
                 }
+            })
+        })
+    }
+    if (category == 'search') {
+        $("#communities-go-here").children().remove()
+        db.collection(collection).where("postal_code", "==", search.slice(0,3).toUpperCase()).get().then(allCommunity => {
+            var i = 1;  //Optional: if you want to have a unique ID for each hike
+            allCommunity.forEach(doc => { //iterate thru each doc
+                let area = doc.data().area;
+                let country = doc.data().country;
+                let latitude = doc.data().latitude;
+                let longitude = doc.data().longitude;
+                let place = doc.data().place;
+                let postal_code = doc.data().postal_code;
+                let province = doc.data().province;
+                let region = doc.data().region;
+                // var details = doc.data().details;  // get value of the "details" key
+                let docID = doc.id;
+                let newcard = cardTemplate.content.cloneNode(true);
+                //update title and text and image
+                newcard.querySelector('.area').innerHTML = area + " (" + postal_code + ")";
+                newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
+                // newcard.querySelector('.card-text').innerHTML = details;
+                newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
+                newcard.querySelector('.map-template').innerHTML = `<div id='map-template-${i}' style='width: 100%; height: 200px;'></div>`
+                document.getElementById(collection + "-go-here").appendChild(newcard);
+                showEventsOnMap(`map-template-${i}`, latitude, longitude)
+                i += 1
             })
         })
     }
@@ -95,6 +123,11 @@ function search_by_user_location() {
         console.log(userLocation);
         displayCardsDynamically("communities", 'GPS', userLocation);
     })
+}
+
+function search_by_postal_code(){
+    // console.log($('.customized-search').val().slice(0,3).toUpperCase())
+    displayCardsDynamically("communities", 'search', $('.customized-search').val());
 }
 
 page_distribution(); //run the function
