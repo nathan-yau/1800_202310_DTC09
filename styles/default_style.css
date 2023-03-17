@@ -49,7 +49,7 @@ body {
 }
 
 #header {
-    transition: margin-left .5s;
+    transition: all .5s;
     padding: 5px;
     background: #ff8f29;
     /* box-shadow: 0 2px 2px -2px rgba(0,0,0,0.5); */
@@ -160,40 +160,40 @@ body {
 
 .material-symbols-outlined {
     font-variation-settings:
-    'FILL' 1,
-    'wght' 700,
-    'GRAD' 200,
-    'opsz' 48
-  }
+        'FILL' 1,
+        'wght' 700,
+        'GRAD' 200,
+        'opsz' 48
+}
 
 .material-symbols-rounded {
     color: #7A7A79;
     font-size: 38px;
     font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 150,
-    'opsz' 48
-  }
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 150,
+        'opsz' 48
+}
 
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color:#E8E8E6 !important;
+    background-color: #E8E8E6 !important;
     color: white;
     text-align: center;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2) !important;
 }
 
 .footer :hover {
-   color:#ff8f29;
-   font-variation-settings:
-   'FILL' 1,
-   'wght' 400,
-   'GRAD' 150,
-   'opsz' 48
+    color: #ff8f29;
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 150,
+        'opsz' 48
 }
 
 .cta_btn {
@@ -213,7 +213,7 @@ body {
     padding: 20px;
     color: #fff;
     background-color: #2999FF;
-    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-property: background-color, border-color, color, box-shadow, filter;
     transition-duration: .3s;
 }
 
@@ -238,14 +238,77 @@ body {
     color: #2999FF;
     border: solid 1px #2999FF;
     background-color: white;
-    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-property: background-color, border-color, color, box-shadow, filter;
     transition-duration: .3s;
 }
 
-.enter_btn:hover  {
+.enter_btn:hover {
     text-decoration: none;
     color: white;
     border: solid 1px white;
     background-color: #1e83e1;
 }
 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 57px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: darkslategrey;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 23px;
+    width: 23px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #ccc;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#dark-mode {
+    padding: 8px 8px 8px 32px;
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}

@@ -2,13 +2,17 @@
     <!-- Search Bar -->
     <div class="container" id="main-context">
         <div class="input-group pb-3 form">
-            <span class="fa-search material-symbols-outlined" onclick="search_by_user_location()">location_searching</span>
-            <input type="search" class="form-control rounded customized-search" placeholder="Search by Current Location or Enter Portal Code..."
-                aria-label="Search" aria-describedby="search-addon">
-            <button type="button" class="btn btn-outline-primary" onclick="search_by_postal_code()" >search</button>
+            <span class="fa-search material-symbols-outlined"
+                onclick="search_by_user_location()">location_searching</span>
+            <input type="search" class="form-control rounded customized-search"
+                placeholder="Search by Current Location or Enter Portal Code..." aria-label="Search"
+                aria-describedby="search-addon">
+            <button type="button" class="btn btn-outline-primary" onclick="search_by_postal_code()"
+                style="background-color: #f8f9fa;">search</button>
         </div>
         <!-- Title -->
-        <p style="font-weight: 800; font-size: 1.5em; color: #00cbad;" class="section-description">Available Community</p>
+        <p style="font-weight: 800; font-size: 1.5em; color: #00cbad;" class="section-description">Available Community
+        </p>
         <!-- Placeholder -->
         <div id="communities-go-here" class="column row-cols-auto"> </div>
         <div style="height: 70px;"></div>
