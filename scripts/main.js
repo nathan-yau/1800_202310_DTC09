@@ -1,6 +1,6 @@
-function displayCardsDynamically(collection, search) {
+function displayCardsDynamically(collection, category, search) {
     let cardTemplate = document.getElementById("communityPlaceholder");
-    if (search == undefined) {
+    if (category == undefined) {
         db.collection(collection).where("region", "==", "Metro Vancouver").limit(5).get().then(allCommunity => {
             var i = 1;  //Optional: if you want to have a unique ID for each hike
             allCommunity.forEach(doc => { //iterate thru each doc
@@ -28,7 +28,7 @@ function displayCardsDynamically(collection, search) {
             })
         })
     }
-    if (search != undefined) {
+    if (category != undefined) {
         $("#communities-go-here").children().remove()
         db.collection(collection).where("longitude", "<=", search[0]).where("longitude", ">=", search[2]).get().then(allCommunity => {
             var i = 1;  //Optional: if you want to have a unique ID for each hike
@@ -93,7 +93,7 @@ function search_by_user_location() {
         const range = 0.02
         const userLocation = [position.coords.longitude + range, position.coords.latitude + range, position.coords.longitude - range, position.coords.latitude - range];
         console.log(userLocation);
-        displayCardsDynamically("communities", userLocation);
+        displayCardsDynamically("communities", 'GPS', userLocation);
     })
 }
 
