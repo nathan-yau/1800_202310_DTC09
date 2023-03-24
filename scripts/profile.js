@@ -12,6 +12,7 @@ function populateUserInfo() {
                     var userName = userDoc.data().name;
                     var userPC = userDoc.data().postalcode;
                     var userCity = userDoc.data().city;
+                    var subscription = userDoc.data().subscription;
                     var picUrl = userDoc.data().profile_picture;
 
                     //if the data fields are not empty, then write them in to the form.
@@ -24,13 +25,18 @@ function populateUserInfo() {
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
+                    if (subscription == true) {
+                        document.getElementById("emailInput").getElementsByTagName('option')[0].selected = true;
+                    }
+                    else {
+                        document.getElementById("emailInput").getElementsByTagName('option')[1].selected = true;
+                    }
                     if (picUrl != null){
                         console.log(picUrl);
-                        // use this line if "mypicdiv" is a "div"
-                        //$("#mypicdiv").append("<img src='" + picUrl + "'>")
                         $("#mypic-goes-here").attr("src", picUrl);
                     }
                     else
+                    $("#mypic-goes-here").attr("src", "images/profile.png");
                     console.log("picURL is null");
                 })
         } else {
@@ -46,7 +52,9 @@ function editUserInfo() {
     document.getElementById('personalInfoFields').disabled = false;
 }
 
-var ImageFile;      //global variable to store the File Object reference
+
+//global variable to store the File Object reference
+var ImageFile;
 
 function chooseFileListener(){
     const fileInput = document.getElementById("mypic-input");   // pointer #1
@@ -66,6 +74,7 @@ function chooseFileListener(){
 }
 chooseFileListener();
 
+
 function saveUserInfo() {
     firebase.auth().onAuthStateChanged(function (user) {
         var storageRef = storage.ref("images/" + user.uid + ".jpg");
@@ -83,14 +92,16 @@ function saveUserInfo() {
                         var userName = document.getElementById("nameInput").value;
                         var userPC = document.getElementById("postalCodeInput").value;
                         var userCity = document.getElementById("cityInput").value;
-                        console.log(userName, userPC, userCity);
+                        var subscription = document.getElementById("emailInput").value;
+                        // console.log(userName, userPC, userCity);
 
                         //Asynch call to save the form fields into Firestore.
                         currentUser.update({
                                 name: userName,
                                 postalcode: userPC,
                                 city: userCity,
-                                profile_picture: url // Save the URL into users collection
+                                subscription: subscription,
+                                profile_picture: url
                             })
                             .then(function () {
                                 console.log('Added Profile Pic URL to Firestore.');
@@ -101,5 +112,6 @@ function saveUserInfo() {
             })
     })
 }
+
 
 populateUserInfo();
