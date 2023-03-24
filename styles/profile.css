@@ -1,2 +1,78 @@
+body {
+    background-color: #F8F9F9;
+}
+
 #profile-container {
+    margin-top: 20px;
+    text-align: center;
+}
+#mypic-input {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    text-align-last:center;
+}
+
+input::file-selector-button {
+    padding: 0.3em 0.5em;
+    color: #212529;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+h1 {
+    margin-top: -20px;
+    font-weight: 800;
+    font-size: 2em;
+    color: #00cbad;
+}
+
+img {
+    border-radius: 50%;
+    width:180px;
+    height:180px;
+  }
+
+
+.btn {
+    display: block;
+    margin-top: -30px;
+    cursor: pointer;
+    display: fixed;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 100px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+    background-color: #2999FF;
+    transition-property: background-color, border-color, color, box-shadow, filter;
+    transition-duration: .3s;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #1e83e1;
+}
+
+.edit_btn {
+    background-color: #8e8e8e;
+    transition-property: background-color, border-color, color, box-shadow, filter;
+    transition-duration: .3s;
+}
+
+.edit_btn:hover {
+    color: #fff;
+    background-color: #787878;
+}
+
+.form-group {
+    margin:10px;
 }
