@@ -40,7 +40,7 @@ function populateUserInfo() {
                         $("#mypic-goes-here").attr("src", picUrl);
                     }
                     else {
-                    $("#mypic-goes-here").attr("src", "images/profile.png");
+                    $("#mypic-goes-here").attr("src", "../images/profile.png");
                     console.log("picURL is null");
                     }
                 })
@@ -102,19 +102,37 @@ function saveUserInfo() {
                         // console.log(userName, userPC, userCity);
 
                         //Asynch call to save the form fields into Firestore.
-                        currentUser.update({
-                                name: userName,
-                                postalcode: userPC,
-                                city: userCity,
-                                subscription: subscription,
-                                profile_picture: url
+                        if (currentUser.picUrl == null) {
+                            currentUser.update({
+                              name: userName,
+                              postalcode: userPC,
+                              city: userCity,
+                              subscription: subscription,
                             })
-                            .then(function () {
-                                console.log('Added Profile Pic URL to Firestore.');
-                                console.log('Saved user profile info');
-                                document.getElementById('personalInfoFields').disabled = true;
+                            .then(function() {
+                              document.getElementById('personalInfoFields').disabled = true;
                             })
-                    })
+                            .catch(function(error) {
+                              console.error('Error updating user profile:', error);
+                            });
+                          } else {
+                            currentUser.update({
+                              name: userName,
+                              postalcode: userPC,
+                              city: userCity,
+                              subscription: subscription,
+                              profile_picture: url
+                            })
+                            .then(function() {
+                              console.log('Added profile pic URL to Firestore.');
+                              console.log('Saved user profile info');
+                              document.getElementById('personalInfoFields').disabled = true;
+                            })
+                            .catch(function(error) {
+                              console.error('Error updating user profile:', error);
+                            });
+                          }
+                        })
             })
     })
 }
