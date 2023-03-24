@@ -12,6 +12,7 @@ function populateUserInfo() {
                     var userName = userDoc.data().name;
                     var userPC = userDoc.data().postalcode;
                     var userCity = userDoc.data().city;
+                    var userEmail = userDoc.data().email;
                     var subscription = userDoc.data().subscription;
                     var picUrl = userDoc.data().profile_picture;
 
@@ -25,19 +26,23 @@ function populateUserInfo() {
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
+                    if (userEmail != null) {
+                        document.getElementById("email").value = userEmail;
+                    }
                     if (subscription == true) {
-                        document.getElementById("emailInput").getElementsByTagName('option')[0].selected = true;
+                        document.getElementById("emailSubscription").getElementsByTagName('option')[0].selected = true;
                     }
                     else {
-                        document.getElementById("emailInput").getElementsByTagName('option')[1].selected = true;
+                        document.getElementById("emailSubscription").getElementsByTagName('option')[1].selected = true;
                     }
                     if (picUrl != null){
                         console.log(picUrl);
                         $("#mypic-goes-here").attr("src", picUrl);
                     }
-                    else
+                    else {
                     $("#mypic-goes-here").attr("src", "images/profile.png");
                     console.log("picURL is null");
+                    }
                 })
         } else {
             // No user is signed in.
@@ -50,6 +55,7 @@ function populateUserInfo() {
 function editUserInfo() {
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
+    document.getElementById('email').disabled = true;
 }
 
 
@@ -92,7 +98,7 @@ function saveUserInfo() {
                         var userName = document.getElementById("nameInput").value;
                         var userPC = document.getElementById("postalCodeInput").value;
                         var userCity = document.getElementById("cityInput").value;
-                        var subscription = document.getElementById("emailInput").value;
+                        var subscription = document.getElementById("emailSubscription").value;
                         // console.log(userName, userPC, userCity);
 
                         //Asynch call to save the form fields into Firestore.
