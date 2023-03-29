@@ -229,12 +229,13 @@ body {
     outline: none;
     font-size: 14px;
     border-radius: 10px;
-    letter-spacing: 2px;
+    /* letter-spacing: 2px; */
     text-transform: uppercase;
     white-space: normal;
     font-weight: 700;
     text-align: center;
     padding: 5px;
+    /* padding: 2px 12px 2px 12px; */
     color: #2999FF;
     border: solid 1px #2999FF;
     background-color: white;

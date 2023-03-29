@@ -24,8 +24,8 @@ body {
 
 .post-icon {
     position: fixed;
-    bottom: 120px;
-    right: 50px;
+    bottom: 100px;
+    right: 25px;
     width: 80px;
 }
 
@@ -190,5 +190,14 @@ body {
     #popup {
         min-width: 90%;
         max-height: 80%;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .post-icon {
+        position: fixed;
+        bottom: 100px;
+        right: 400px;
+        width: 80px;
     }
 }
