@@ -1,45 +1,70 @@
-
-
-h1.support {
-    margin-bottom: 60px;
-    margin-left: 30px;
-    font-size: 50px;
-    font-weight: bold;
-    font-family: 'Roboto', Times, serif;
-    color:#00cbad
+body {
+    background-color: #F8F9F9;
 }
 
-p {
-    display: block;
-    margin-left: 70px;
-    margin-bottom: 40px;
-
+main {
+    margin: 0 10px 0 10px;
+    margin-bottom: 100px;
 }
 
-button {
-    width: 120px;
-    padding: 10px;
-    margin-left: 40px;
-    margin-bottom: 20px;
-    background-color: #ff8f29;
-    color: white;
-    border-radius: 10px;
-    border-color: none !important;
-    display: block;
-    align-items: center;
-    font-size: 15px;
-    font-weight: bold;
+h1 {
+    margin-top: 30px;
+    font-weight: 800;
+    font-size: 2em;
+    color: #00cbad;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.faq-heading{
+    border-bottom: #777;
+    padding: 20px 0px;
+}
+
+.faq-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.faq-page {
+    color: #444;
     cursor: pointer;
-    /*  */
+    padding: 30px 0px;
+    width: 90%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+    padding-right: 20px;
+    margin-top: 20px;
 }
 
-.support-image {
-    width:400px;
+.faq-body{
+    margin: auto;
+    width: 90%; 
 }
 
-@media screen and (max-width: 600px) {
-    .support-image {
-        width:70%;
-        transition: 0.5s;
-    }
+.active,
+.faq-page:hover {
+    background-color: #f0f0f0;
+}
+
+.faq-body {
+    display: none;
+    overflow: hidden;
+}
+
+.faq-page:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+}
+
+.active:after {
+    content: "\2796";
 }
