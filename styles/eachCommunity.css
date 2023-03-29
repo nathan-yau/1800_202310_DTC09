@@ -2,6 +2,9 @@ body {
     background-color: #F8F9F9;
 }
 
+#contact-form {
+    font-size: 18px;
+}
 .fa-search {
     position: absolute;
     color: #9ca3af;
@@ -33,10 +36,10 @@ body {
 }
 
 #popup {
-    width: 70%;
-    height: 75%;
+    width: 90%;
+    height: 80%;
     background: white;
-    /* opacity: 97%; */
+    opacity: 97%;
     border: 0px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
@@ -173,4 +176,11 @@ body {
 
 #discord-widget:hover {
     height: auto;
+}
+
+@media only screen and (max-height: 1000px) {
+    #popup {
+        min-width: 90%;
+        max-height: 80%;
+    }
 }
