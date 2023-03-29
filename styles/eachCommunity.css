@@ -199,12 +199,44 @@ body {
     font-weight: 700;
     text-align: center;
     padding: 5px;
+    color: white;
+    background-color: #2999FF;
+    transition-property: background-color, border-color, color, box-shadow, filter;
+    transition-duration: .3s;
+}
+
+.discord_btn:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #1e83e1;
+}
+
+/* .discord_btn {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    display: fixed;
+    outline: none;
+    font-size: 14px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px;
     color: #2999FF;
     border: solid 1px #2999FF;
     background-color: white;
     transition-property: background-color, border-color, color, box-shadow, filter;
     transition-duration: .3s;
 }
+
+.discord_btn:hover {
+    text-decoration: none;
+    color: white;
+    border: solid 1px white;
+    background-color: #1e83e1;
+} */
 
 @media only screen and (max-height: 1000px) {
     #popup {
