@@ -2,6 +2,10 @@ body {
     background-color: #F8F9F9;
 }
 
+main {
+    margin: 0 30px 0 30px;
+}
+
 #profile-container {
     margin-top: 20px;
     text-align: center;
@@ -21,7 +25,7 @@ input::file-selector-button {
 }
 
 h1 {
-    margin-top: -20px;
+    margin-top: 30px;
     font-weight: 800;
     font-size: 2em;
     color: #00cbad;
@@ -36,7 +40,8 @@ img {
 
 .btn {
     display: block;
-    margin-top: -30px;
+    /* margin-top: -30px; */
+    margin-bottom: 100px;
     cursor: pointer;
     display: fixed;
     outline: none;

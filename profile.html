@@ -50,12 +50,15 @@
 <body>
     <!-- Nav Section -->
     <nav id="navbarPlaceholder"></nav>
+    <!-- Main -->
+    <!-- <nav id="mainPlaceholder"></nav> -->
 
     <!-- Main Section-->
-    <div class="mt-5" style="text-align: center;">
+    <main>
+    <div class="container-fluid" style="text-align: center">
         <!-- <img src="./images/profile.png" alt="" width="150px" class="mt-5"> -->
     </div>
-    <div class="container mt-5">
+    <div class="container-fluid">
         <h1>User Profile</h1>
         <form>
             <fieldset class="mb-3" id="personalInfoFields" disabled>
@@ -88,13 +91,14 @@
                       </select>
                 </div>
             </fieldset>
-            <div class="d-flex justify-content-end mt-5">
+            <div class="d-flex justify-content-end container-fluid">
                 <button type="button" class="btn edit_btn" onclick="editUserInfo()">Edit</button>
                 <span style="width: 10px"></span>
                 <button type="button" class="btn" onclick="saveUserInfo()">Save</button>
             </div>
         </form>
     </div>
+    </main>
 
 
     <!-- Footer Section -->
