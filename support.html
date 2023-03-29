@@ -2,104 +2,126 @@
 <html lang="en">
 
 <head>
-  <title>LifeLine - Your supportive web community</title>
-  <meta name="LifeLine - COMP1800 Project" content="My 1800 App" />
+    <title>LifeLine - Your supportive web community</title>
+    <meta name="LifeLine - COMP1800 Project" content="My 1800 App">
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap Library CSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-- Bootstrap Library CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <!-- Boostrap Library JS CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    <!-- Boostrap Library JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
-  <!-- JQuery Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- FireBase Library -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <!-- FireBase Library -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-  <!-- Google Material Symbols Library -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Google Material Symbols Library -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <!-- Our own CSS File -->
-  <link rel="stylesheet" href="./styles/default_style.css" />
-  <link rel="stylesheet" href="./styles/support.css" />
+    <!-- Our own CSS File -->
+    <link rel="stylesheet" href="./styles/default_style.css">
+    <link rel="stylesheet" href="./styles/support.css">
+
 </head>
 
 <body>
-  <nav id="navbarPlaceholder"></nav>
-  <h1 class="support mt-4">Support</h1>
-  <div class="flex_container">
-    <div style="flex-basis: 75%;">
-      <button onclick="faqFunction()">FAQ</button>
-      <div hidden id="faq_text">
-        <p>
-          How to login?
-        </p>
-        <p>
-          How to find my community?
-        </p>
-        <p>
-          How to post information?
-        </p>
-      </div>
+    <!-- Nav Section -->
+    <nav id="navbarPlaceholder"></nav>
+    <!-- Main -->
+    <!-- <nav id="mainPlaceholder"></nav> -->
 
-      <button onclick="tutorialFunction()">Tutorial</button>
-      <div hidden id="tutorial_text">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Magnam,laboriosam!
-        </p>
-      </div>
+    <!-- Main Section-->
+    <main>
+    <div class="container-fluid">
+        <main>
+            <h1>Support</h1>
+            <!-- <h1 class="faq-heading">FAQ'S</h1> -->
+            <section class="faq-container">
+                <div class="faq-one">
+                    <!-- faq question -->
+                <h2 class="faq-page">What is LifeLine?</h2>
+                    <!-- faq answer -->
+                    <div class="faq-body">
+                        <p>Life Line is a community-driven platform designed to connect people who live in the same neighborhood.
+                         Our app aims to make it easy for neighbors to connect and share information under extreme weather condition.
+                        </p>
+                    </div>
+                </div>
+                <hr class="hr-line">
+                <div class="faq-two">
+                    <!-- faq question -->
+                    <h2 class="faq-page">How do I login? </h2>
+                    <!-- faq answer -->
+                    <div class="faq-body">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                            necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                            aperiam.
+                            Perspiciatis, porro!</p>
+                    </div>
+                </div>
+                <hr class="hr-line">
+                <div class="faq-three">
+                    <!-- faq question -->
+                    <h2 class="faq-page">How do I find my community?</h2>
+                    <!-- faq answer -->
+                    <div class="faq-body">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                            necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                            aperiam.
+                            Perspiciatis, porro!</p>
+                    </div>
+                </div>
+                <hr class="hr-line">
+                <div class="faq-four">
+                    <!-- faq question -->
+                <h2 class="faq-page">How do I post information? </h2>
+                    <!-- faq answer -->
+                    <div class="faq-body">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                            necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                            aperiam.
+                            Perspiciatis, porro!</p>
+                    </div>
+                </div>
 
-      <button onclick="contactFunction()">Contact Us</button>
-      <div hidden id="contact_text">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Magnam,laboriosam!
-        </p>
-      </div>
-
-      <button onclick="aboutFunction()">About</button>
-      <div hidden id="about_text">
-        <p>
-          Welcome to LifeLine, a community-driven platform designed to connect people who live in the same
-          neighborhood. </p>
-        <p>
-          Our app aims to make it easy for neighbors to connect and share information under extreme weather condition.
-        </p>
-      </div>
+            </section>
+        </main>
+       
     </div>
-  </div>
-  <div style="height:70px;"></div>
+    </main>
 
 
-  <!-- Footer Section -->
-  <nav id="footerPlaceholder"></nav>
+    <!-- Footer Section -->
+    <nav id="footerPlaceholder"></nav>
 
-  <!-- Our own Javascript Files -->
-  <script src="./scripts/firebaseAPI_DTC09.js"></script>
-  <script src="./scripts/skeleton.js"></script>
-  <script src="./scripts/support.js"></script>
+
+    <!-- Our own Javascript Files -->
+    <script src="./scripts/firebaseAPI_DTC09.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/support.js"></script>
 </body>
 
 </html>
