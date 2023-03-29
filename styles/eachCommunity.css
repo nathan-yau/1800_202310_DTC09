@@ -24,6 +24,13 @@ body {
 
 .post-icon {
     position: fixed;
+    bottom: 120px;
+    right: 50px;
+    width: 80px;
+}
+
+/* .post-icon2 {
+    position: fixed;
     color: #00cbad;
     bottom: 120px;
     right: 50px;
@@ -33,7 +40,8 @@ body {
         'wght' 400,
         'GRAD' 0,
         'opsz' 48
-}
+} */
+
 
 #popup {
     width: 90%;
