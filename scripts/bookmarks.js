@@ -5,6 +5,12 @@ function displayBookmark() {
             currentUser = db.collection("users").doc(user.uid);
             currentUser.get().then(userDoc => {
                 let bookmarkList= userDoc.data().bookmark;
+                if (bookmarkList.length === 0) {
+                    let message = document.createElement("p");
+                    message.innerText = "There are no bookmarks added.";
+                    document.getElementById("message").style.padding = "200px 0px 0px 0px"
+                    document.getElementById("message").appendChild(message);
+                } else {
                 bookmarkList.forEach(bookmark => {
                     let title = bookmark.title;
                     let picture = bookmark.picture;
@@ -25,6 +31,7 @@ function displayBookmark() {
 
                     document.getElementById("bookmarks").appendChild(newBookmark);
                 });
+                }
             });
         }
     });
