@@ -181,35 +181,65 @@ function bookmark() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             var postid = event.currentTarget.id
-            db.collection('posts').where(firebase.firestore.FieldPath.documentId(), "==", postid)
-                .get()
-                .then((allPost) => {
-                    allPost.forEach((doc) => {
-                        var title = doc.data().title
-                        var picture = doc.data().picture
-                        var postcontent = doc.data().postcontent
-                        var author = doc.data().author
-                        var timestamp = doc.data().timestamp
-                        db.collection("users").doc(user.uid).update({
-                            bookmark: firebase.firestore.FieldValue.arrayUnion({
-                                title: title,
-                                picture: picture,
-                                postcontent: postcontent,
-                                timestamp: timestamp,
-                                author: author,
-                                postID: postid
+            db.collection('posts').doc(postid).get()
+                .then((doc) => {
+                    var title = doc.data().title
+                    var picture = doc.data().picture
+                    var postcontent = doc.data().postcontent
+                    var author = doc.data().author
+                    var timestamp = doc.data().timestamp
+                    var bookmarkRef = db.collection("users").doc(user.uid)
+                    bookmarkRef.get().then((doc) => {
+                        if (doc.exists) {
+                            var bookmarks = doc.data().bookmark
+                            var bookmarkIndex = bookmarks.findIndex((bookmark) => bookmark.postID === postid)
+                            if (bookmarkIndex === -1) {
+                                bookmarkRef.update({
+                                    bookmark: firebase.firestore.FieldValue.arrayUnion({
+                                        title: title,
+                                        picture: picture,
+                                        postcontent: postcontent,
+                                        timestamp: timestamp,
+                                        author: author,
+                                        postID: postid
+                                    })
+                                }).then(() => {
+                                    console.log("Bookmark added.")
+                                    $(`#${postid}`).html(`                            
+                                        <span id="bookmarks_icon_small" class="material-symbols-rounded" style="font-size:16px; padding-top: 5px;">bookmarks</span>
+                                        <span style="font-size:12px">Bookmark added! </span>`)
+                                })
+                            } else {
+                                bookmarkRef.update({
+                                    bookmark: firebase.firestore.FieldValue.arrayRemove(bookmarks[bookmarkIndex])
+                                }).then(() => {
+                                    console.log("Bookmark removed.")
+                                    $(`#${postid}`).html(`                            
+                                        <span " class="material-symbols-rounded" style="font-size:16px; padding-top: 5px;">bookmarks</span>
+                                        <span style="font-size:12px">BOOKMARK THIS POST</span>`)
+                                })
+                            }
+                        } else {
+                            bookmarkRef.set({
+                                bookmark: [{
+                                    title: title,
+                                    picture: picture,
+                                    postcontent: postcontent,
+                                    timestamp: timestamp,
+                                    author: author,
+                                    postID: postid
+                                }]
+                            }).then(() => {
+                                console.log("Bookmark added.")
+                                $(`#${postid}`).html(`                            
+                                    <span id="bookmarks_icon_small" class="material-symbols-rounded" style="font-size:16px; padding-top: 5px;">bookmarks</span>
+                                    <span style="font-size:12px">Bookmark added! </span>`)
                             })
-                        })
-                    });
-                }).then(function () {
-                    console.log("Bookmark added.")
-                    $(`#${postid}`).html(`                            
-                        <span id="bookmarks_icon_small" class="material-symbols-rounded" style="font-size:16px; padding-top: 5px;">bookmarks</span>
-                        <span style="font-size:12px">Bookmark added! </span>`)
+                        }
+                    })
                 })
         }
     });
 }
-
 displayCommunityDescriptionDynamically("communities");
 displayCommunityPostDynamically("posts");
