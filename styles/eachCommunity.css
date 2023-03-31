@@ -45,7 +45,7 @@ body {
 
 #popup {
     width: 90%;
-    height: 60%;
+    height: 90%;
     background: white;
     opacity: 97%;
     border: 0px;
@@ -238,6 +238,7 @@ body {
     border: solid 1px white;
     background-color: #1e83e1;
 } */
+
 
 @media only screen and (max-height: 1000px) {
     #popup {
