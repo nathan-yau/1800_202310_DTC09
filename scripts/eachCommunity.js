@@ -83,7 +83,7 @@ function displayCommunityPostDynamically(collection) {
                                 if (bookmarkList[x].postID == postID) {
                                     $(`#${postID}`).html(`                            
                                     <span id="bookmarks_icon_small" class="material-symbols-rounded" style="font-size:16px; padding-top: 5px;">bookmarks</span>
-                                    <span style="font-size:12px">Bookmark added! </span>`)
+                                    <span style="font-size:12px">Remove Bookmark </span>`)
                                 }
                                 x += 1
                             })
@@ -195,6 +195,9 @@ function bookmark() {
                 .then((doc) => {
                     var title = doc.data().title
                     var picture = doc.data().picture
+                    if (picture == undefined) {
+                        picture = ''
+                    }
                     var postcontent = doc.data().postcontent
                     var author = doc.data().author
                     var timestamp = doc.data().timestamp
