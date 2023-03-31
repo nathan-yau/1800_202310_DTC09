@@ -323,6 +323,14 @@ input:checked+.slider:before {
     z-index: 0;
 }
 
+.main-before-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 50px 50px 50px;
+}
+
 @media only screen and (min-width: 1000px) {
     #neighbourhood img{
         left:25%;
@@ -336,5 +344,23 @@ input:checked+.slider:before {
         left:40%;
         bottom:50px;
         width: 30%;
+    }
+}
+
+@media only screen and (min-height: 600px) {
+    .main-before-login {
+        margin: 80px 50px 50px 50px;
+    }
+}
+
+@media only screen and (min-height: 700px) {
+    .main-before-login {
+        margin: 100px 50px 50px 50px;
+    }
+}
+
+@media only screen and (min-height: 800px) {
+    .main-before-login {
+        margin: 150px 50px 50px 50px;
     }
 }
