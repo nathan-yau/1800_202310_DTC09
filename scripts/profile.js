@@ -52,12 +52,34 @@ function populateUserInfo() {
 }
 
 
+let originalUserInfo = {};
+let editMode = false;
+
 function editUserInfo() {
-    //Enable the form fields
+  var fields = document.getElementById('personalInfoFields').elements;
+
+  if (editMode) {
+    // Disable the form fields
+    document.getElementById('personalInfoFields').disabled = true;
+    document.getElementById('email').disabled = true;
+    document.getElementById('edit').innerHTML = "Edit";
+    editMode = false;
+  } else {
+    if (Object.keys(originalUserInfo).length === 0) {
+      // Store the original values of the fields
+      for (var i = 0; i < fields.length; i++) {
+        originalUserInfo[fields[i].name] = fields[i].value;
+      }
+    }
+
+    // Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
     document.getElementById('email').disabled = true;
     document.getElementById('edit').innerHTML = "Cancel";
+    editMode = true;
+  }
 }
+
 
 
 //global variable to store the File Object reference
@@ -72,7 +94,7 @@ function chooseFileListener(){
     fileInput.addEventListener('change', function(e){
 
         //the change event returns a file "e.target.files[0]"
-	      ImageFile = e.target.files[0];
+	    ImageFile = e.target.files[0];
         var blob = URL.createObjectURL(ImageFile);
 
         //change the DOM img element source to point to this file
