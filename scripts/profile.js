@@ -56,6 +56,7 @@ function editUserInfo() {
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
     document.getElementById('email').disabled = true;
+    document.getElementById('edit').innerHTML = "Cancel";
 }
 
 
@@ -93,7 +94,7 @@ function saveUserInfo() {
                 //Asynch call to get URL from Cloud
                 storageRef.getDownloadURL()
                     .then(function (url) { // Get "url" of the uploaded file
-                        console.log("Got the download URL.");
+                        console.log("Got the download URL: " + url);
 						//get values from the from
                         var userName = document.getElementById("nameInput").value;
                         var userPC = document.getElementById("postalCodeInput").value;
@@ -102,7 +103,7 @@ function saveUserInfo() {
                         // console.log(userName, userPC, userCity);
 
                         //Asynch call to save the form fields into Firestore.
-                        if (currentUser.picUrl == null) {
+                        if (!ImageFile) {
                             currentUser.update({
                               name: userName,
                               postalcode: userPC,
