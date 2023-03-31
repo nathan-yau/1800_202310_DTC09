@@ -45,20 +45,34 @@ function logout() {
 
 function dark_mode() {
     if ($(".dark-enable").is(':checked') == true) {
-        $('.sidebar').css('background-color', 'darkslategrey');
-        $('#header').css('background-color', '#CF6679')
+        $('.sidebar').attr('style', 'background-color: darkslategrey !important;');
+        $('#header').attr('style', 'background-color: #CF6679 !important;');
+        $('footer').attr('style', 'background-color: #CF6679 !important;');
         $('body').attr('style', 'background-color: #121212 !important;transition: all .5s;');
         $('.card ').attr('style', 'color: white!important; background-color: #665f5f !important;transition: all .5s; border-radius: 20px!important;');
         $('.enter_btn ').attr('style', 'color: white!important; background-color: #2999FF !important;transition: all .5s;');
+        $('#search_btn').attr('style', 'color: white!important; background-color: #2999FF !important;transition: all .5s;');
         $('h1').attr('style', 'color: white!important')
+        $('.card-footer').attr('style', 'background-color: #665f5f!important')
+        $('.material-symbols-rounded').attr('style', 'color: white!important')
+        $('.faq-page').attr('style', 'color: #858282!important')
+        $('.faq-body').attr('style', 'color: #858282!important')
+        $('.faq-container').attr('style', 'color: #858282!important')
     }
     else {
-        $('.sidebar').css('background-color', '#00cbad');
-        $('#header').css('background-color', 'orange')
-        $('body').attr('style', 'background-color: #f8f9fa!important;transition: all .5s;');
-        $('.card ').attr('style', 'color: black!important; background-color: #fff !important;transition: all .5s; border-radius: 20px!important;');
-        $('.enter_btn ').attr('style', 'color: #2999FF!important; background-color: #fff !important;transition: all .5s;');
-        $('h1').attr('style', 'color: black!important')
+        $('.sidebar').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('#header').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('footer').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('body').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('.card ').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('.enter_btn ').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('#search_btn ').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('h1').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('.card-footer').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('.material-symbols-rounded').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('.faq-page').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('.faq-body').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('.faq-container').removeAttr('style').attr('style', 'transition: all .5s;')
     }
 }
 
