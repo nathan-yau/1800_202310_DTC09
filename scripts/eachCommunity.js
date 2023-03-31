@@ -115,25 +115,34 @@ listenFileSelect();
 function add_post() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            UserID = firebase.auth().currentUser.uid
-            currentUser = db.collection("users").doc(UserID);
-            let params = new URL(window.location.href);
-            let ID = params.searchParams.get("docID");
-            db.collection("posts").add({
-                author: firebase.auth().currentUser.displayName,
-                communityid: ID,
-                // picture: "https://i.ytimg.com/vi/VPRLDDnCU9o/maxresdefault.jpg",
-                postcontent: $(".posting-content").val(),
-                title: $(".posting-title").val(),
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            }).then((doc) => {
-                uploadPic(doc.id),
-                    $("#contact-form").children().remove(),
-                    $("#contact-form").html(
-                        `<a href="javascript:void(0)" class="closepost" onclick="closePopup()">×</a>
-                    <h2>Thank you for sharing with us.</h2>`
-                    )
-            })
+            if ($(".posting-title").val() != "" && $(".posting-content").val() != "") {
+                UserID = firebase.auth().currentUser.uid
+                currentUser = db.collection("users").doc(UserID);
+                let params = new URL(window.location.href);
+                let ID = params.searchParams.get("docID");
+                db.collection("posts").add({
+                    author: firebase.auth().currentUser.displayName,
+                    communityid: ID,
+                    // picture: "https://i.ytimg.com/vi/VPRLDDnCU9o/maxresdefault.jpg",
+                    postcontent: $(".posting-content").val(),
+                    title: $(".posting-title").val(),
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                }).then((doc) => {
+                    uploadPic(doc.id),
+                        $("#contact-form").children().remove(),
+                        $("#contact-form").html(
+                            `<a href="javascript:void(0)" class="closepost" onclick="closePopup()">×</a>
+                    <h2 style="margin-top:40px; margin-left:20px">Thank you for sharing with us.<br> The page will be refreshed in 2 seconds.</h2>`
+                        )
+                })
+            }
+            else {
+                if ($("#contact-form").children().length == 7){
+                    $('#contact-form').append("<span id='warning' style='margin-left:10%; color:red'>Title or content cannot be empty.</span>")
+                }
+            }
+        }
+        else {
         }
     })
 }
@@ -159,6 +168,7 @@ function uploadPic(postDocID) {
                         // AFTER .update is done
                         .then(function () {
                             console.log('Added pic URL to Firestore.');
+                            location.reload()
                         })
                 })
         })
@@ -241,5 +251,20 @@ function bookmark() {
         }
     });
 }
+
+function page_redirection() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+        } else {
+            location.replace('./index.html');
+        }
+    });
+
+}
+
+page_redirection();
+
+
+
 displayCommunityDescriptionDynamically("communities");
 displayCommunityPostDynamically("posts");

@@ -45,7 +45,7 @@ body {
 
 #popup {
     width: 90%;
-    height: 80%;
+    height: 60%;
     background: white;
     opacity: 97%;
     border: 0px;
@@ -58,6 +58,7 @@ body {
     visibility: hidden;
     transition: transform 1s, top 1s;
     z-index: 10000;
+    max-width: 1000px;
 }
 
 .open-popup {

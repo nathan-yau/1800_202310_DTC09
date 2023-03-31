@@ -35,6 +35,9 @@ function displayBookmark() {
                 }
             });
         }
+        else{
+            location.replace('./index.html');
+        }
     });
 }
 

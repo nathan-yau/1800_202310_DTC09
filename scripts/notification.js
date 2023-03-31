@@ -27,7 +27,7 @@ function page_redirection() {
             }
             )
         } else {
-            window.location.assign("main.html");
+            window.location.assign("index.html");
         }
     });
 }

@@ -3,7 +3,6 @@ function page_redirection() {
         if (user) {
             location.replace('./main.html');
         } else {
-            location.replace('./index.html');
         }
     });
 
