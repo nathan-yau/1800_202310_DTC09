@@ -2,6 +2,52 @@ body {
     background-color: #F8F9F9;
 }
 
+#main_page {
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#info {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0 20px 0 20px;
+    text-align: center;
+}
+
+
+h4 {
+    font-size: 30px;
+    color: #ff8f29;
+
+}
+
+#title {
+    font-size: 45px;
+    font-weight: 800;
+    font-family: 'Open Sans', sans-serif;
+    color: #ff8f29;
+    margin-top: 20px;
+}
+
+#sub_title {
+    color: #575757;
+    font-size: 19px;
+    margin-top: 0px;
+    letter-spacing: 1px;
+    font-weight: 100;
+    /* text-transform: uppercase; */
+}
+
+.login-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -25px;
+}
+
 
 #home_icon {
     color: #ff8f29;
@@ -10,6 +56,20 @@ body {
         'wght' 400,
         'GRAD' 0,
         'opsz' 48
+}
+
+h3 {
+    /* font-size: 22px; */
+    font-weight: 600;
+    /* color: #353935; */
+    letter-spacing: 1px;
+    color: #00cbad;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #575757;
 }
 
 #description-flex {
@@ -54,5 +114,42 @@ body {
 @media only screen and (max-width: 800px) {
     #description-flex{
         visibility: hidden;
+    }
+}
+
+@media only screen and (min-height: 300px) {
+    #main_page {
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+        margin-top: -10px;
+    }
+}
+
+@media only screen and (min-height: 700px) {
+    #main_page {
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (min-height: 800px) {
+    #main_page {
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+        margin-top: 70px;
+    }
+}
+
+
+@media only screen and (min-height: 850px) {
+    #main_page {
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+        margin-top: 100px;
     }
 }

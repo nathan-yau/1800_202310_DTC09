@@ -40,6 +40,10 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+    <!-- Swift slider library -->
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+
     <!-- Our own CSS File -->
     <link rel="stylesheet" href="./styles/default_style.css">
     <link rel="stylesheet" href="./styles/index_style.css">
@@ -50,15 +54,45 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- Main Section-->
-    <div id="main">
-        <h1 id="banner">Welcome to LifeLine</h1>
-        <h5 id="sub_banner">Your web community</h5>
+    <div id="main_page">
+        <h1 id="title">Welcome to LifeLine</h1>
+        <h5 id="sub_title">Your web community</h5>
+    </div>
+    <div id ="info">
+        <div class="swiffy-slider slider-item-show3 slider-nav-sm slider-nav-page slider-item-snapstart slider-item-nogap slider-nav-touch slider-nav-dark slider-indicators-sm slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-slideup">
+            <div class="slider-container">
+                <div class="p-3 text-dark" style="background-color: #f8f9f9;">
+                    <h3>Stay informed</h3>
+                    <p>
+                        Lifeline lets you stay informed about weather events and public safety alerts
+                    </p>
+                </div>
+                <div class="p-3 text-dark" style="background-color: #f8f9f9;">
+                    <h3>Get local help</h3>
+                    <p>
+                        You can request and offer help to others in your area, promoting community help and support.
+                    </p>
+                </div>
+                <div class="p-3 text-dark" style="background-color: #f8f9f9;">
+                    <h3>Stay connected</h3>
+                    <p>
+                        Stay connected with others in your neighborhood, facilitating local networking.
+                    </p>
+                </div>
+            </div>
+        
+            <button type="button" class="slider-nav" aria-label="Go left"></button>
+            <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+    
+        </div>
     </div>
     <div class="login-div">
         <button class="login cta_btn">LOG IN / SIGN UP</button>
     </div>
 
-    <div id="description-flex">
+    
+
+    <!-- <div id="description-flex">
         <div id="left-description">During extreme weather events, stay connected with your community and stay informed
             with LifeLine</div>
         <div id="right-description">
@@ -67,7 +101,7 @@
             - Find essential resources.
         </div>
         <div id="slogan"><br>Join the LifeLine community and weather any storm together.</div>
-    </div>
+    </div> -->
 
     <div id="neighbourhood"><img src="./images/neighbourhood.svg"></div>
 
