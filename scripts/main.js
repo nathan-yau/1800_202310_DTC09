@@ -20,7 +20,7 @@ function displayCardsDynamically(collection, category, search) {
                 newcard.querySelector('.area').innerHTML = area + " (" + postal_code + ")";
                 newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
                 // newcard.querySelector('.card-text').innerHTML = details;
-                newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
+                newcard.querySelector('a').href = "eachcommunity.html?docID=" + docID;
                 newcard.querySelector('.map-template').innerHTML = `<div id='map-template-${i}' style='width: 100%; height: 200px;'></div>`
                 document.getElementById(collection + "-go-here").appendChild(newcard);
                 showEventsOnMap(`map-template-${i}`, latitude, longitude)
@@ -50,7 +50,7 @@ function displayCardsDynamically(collection, category, search) {
                     newcard.querySelector('.area').innerHTML = area + " (" + postal_code + ")";
                     newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
                     // newcard.querySelector('.card-text').innerHTML = details;
-                    newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
+                    newcard.querySelector('a').href = "eachcommunity.html?docID=" + docID;
                     newcard.querySelector('.map-template').innerHTML = `<div id='map-template-${i}' style='width: 100%; height: 200px;'></div>`
                     document.getElementById(collection + "-go-here").appendChild(newcard);
                     showEventsOnMap(`map-template-${i}`, latitude, longitude)
@@ -85,7 +85,7 @@ function displayCardsDynamically(collection, category, search) {
                     newcard.querySelector('.area').innerHTML = area + " (" + postal_code + ")";
                     newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
                     // newcard.querySelector('.card-text').innerHTML = details;
-                    newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
+                    newcard.querySelector('a').href = "eachcommunity.html?docID=" + docID;
                     newcard.querySelector('.map-template').innerHTML = `<div id='map-template-${i}' style='width: 100%; height: 200px;'></div>`
                     document.getElementById(collection + "-go-here").appendChild(newcard);
                     showEventsOnMap(`map-template-${i}`, latitude, longitude)
