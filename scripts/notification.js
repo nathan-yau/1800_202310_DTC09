@@ -15,12 +15,8 @@ function page_redirection() {
                         `    <div class="header">
                         <h1>Subscribe to stay updated</h1>
                       </div>
-                  
                       <input id="email" placeholder="Enter your email address" required>
-                  
                       <br>
-                  
-                  
                       <button id="subscribe" class="cta_btn">Subscribe</button>`
                     )
                 }
@@ -56,16 +52,6 @@ function add_subscription() {
     })
 }
 
-// currentUser = db.collection("users").doc(user.uid);
-// currentUser.get().then(userDoc => {
-//     var subscription = userDoc.data().subscription;
-//     db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
-//         subscription: true,                    //"users" collection
-//         email: user.email,                         //with authenticated user's ID (user.uid)
-//         country: "Canada",                      //optional default profile info      
-//         school: "BCIT"                          //optional default profile info
-//     })
-// }
 
 page_redirection();
 $("body").on("click", "#subscribe", function () {

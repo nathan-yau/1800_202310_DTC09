@@ -5,7 +5,6 @@ function displayBookmark() {
             currentUser = db.collection("users").doc(user.uid);
             currentUser.get().then(userDoc => {
                 let bookmarkList = userDoc.data().bookmark;
-
                 if (bookmarkList.length === 0) {
                     let message = document.createElement("p");
                     message.innerText = "There are no bookmarks added.";
@@ -59,9 +58,6 @@ function removeBookmark(postID) {
                     bookmarkList.splice(bookmarkList.indexOf(bookmark), 1);
                 }
             });
-
-            // console.log(bookmarkList);
-
             await db.collection("users").doc(user.uid).update({
                 bookmark: bookmarkList
             }).catch(function (error) {
@@ -69,7 +65,6 @@ function removeBookmark(postID) {
             });
 
             location.reload();
-            // console.log("Bookmark has been removed successfully");
         }
     });
 }

@@ -11,19 +11,14 @@ function displayCommunityDescriptionDynamically(collection) {
                 var country = doc.data().country;
                 var latitude = doc.data().latitude;
                 var longitude = doc.data().longitude;
-                var place = doc.data().place;
                 var postal_code = doc.data().postal_code;
                 var province = doc.data().province;
                 var region = doc.data().region;
-                // var details = doc.data().details;
-                var docID = doc.id;
                 let newcard = cardTemplate.content.cloneNode(true);
-                // //update title and text and image
                 newcard.querySelector('.area').innerHTML = area + " (" + postal_code + ")";
                 newcard.querySelector('.region').innerHTML = region + " (" + province + ", " + country + ")";
                 document.querySelector('.community_name').innerHTML = area + " (" + postal_code + ")";
                 newcard.querySelector('.card-text').innerHTML = `Number of posts: <span class="number_of_posts">0</span>`;
-                // newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
                 document.getElementById(collection + "-go-here").appendChild(newcard);
                 showEventsOnMap(`map-template`, latitude, longitude)
             }
@@ -64,14 +59,12 @@ function displayCommunityPostDynamically(collection) {
                 let newcard = cardTemplate.content.cloneNode(true);
                 var d = new Date(timestamp.seconds * 1000)
                 var postID = doc.id
-                // //update title and text and image
                 newcard.querySelector('.title').innerHTML = title;
                 newcard.querySelector('.picture').src = picture;
                 newcard.querySelector('.postcontent').innerHTML = postcontent;
                 newcard.querySelector('.timestamp').innerHTML = "Posted: " + d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " +
                     d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + " By " + author;
                 newcard.querySelector('.bookmark').setAttribute('id', postID)
-                // // newcard.querySelector('a').href = "eachCommunity.html?docID=" + docID;
                 document.getElementById(collection + "-go-here").appendChild(newcard);
                 firebase.auth().onAuthStateChanged(function (user) {
                     var x = 0
@@ -123,7 +116,6 @@ function add_post() {
                 db.collection("posts").add({
                     author: firebase.auth().currentUser.displayName,
                     communityid: ID,
-                    // picture: "https://i.ytimg.com/vi/VPRLDDnCU9o/maxresdefault.jpg",
                     postcontent: $(".posting-content").val(),
                     title: $(".posting-title").val(),
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -137,7 +129,7 @@ function add_post() {
                 })
             }
             else {
-                if ($("#contact-form").children().length == 7){
+                if ($("#contact-form").children().length == 7) {
                     $('#contact-form').append("<span id='warning' style='margin-left:10%; color:red'>Title or content cannot be empty.</span>")
                 }
             }
@@ -164,8 +156,6 @@ function uploadPic(postDocID) {
                     db.collection("posts").doc(postDocID).update({
                         "picture": url // Save the URL into users collection
                     })
-
-                        // AFTER .update is done
                         .then(function () {
                             console.log('Added pic URL to Firestore.');
                             location.reload()

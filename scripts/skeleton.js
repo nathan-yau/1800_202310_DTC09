@@ -1,21 +1,12 @@
-//---------------------------------------------------
-// This function loads the parts of your skeleton 
-// (navbar, footer, and other things) into html doc. 
-//---------------------------------------------------
 function loadSkeleton() {
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            // User is signed in.
-            // Do something for the user here.
-            // console.log(user.uid)
-            // console.log($.currentUser)
-            $('#navbarPlaceholder').load('./text/nav_after_login.html')
-            $('#footerPlaceholder').load('./text/footer_after_login.html')
+            $('#navbarPlaceholder').load('../text/nav_after_login.html')
+            $('#footerPlaceholder').load('../text/footer_after_login.html')
         } else {
-            // No user is signed in.
-            $('#navbarPlaceholder').load('./text/nav_before_login.html');
-            $('#footerPlaceholder').load('./text/footer_before_login.html');
+            $('#navbarPlaceholder').load('../text/nav_before_login.html');
+            $('#footerPlaceholder').load('..    /text/footer_before_login.html');
         }
     });
 
@@ -35,12 +26,9 @@ $("body").on("click", ".login", function () {
 
 function logout() {
     firebase.auth().signOut().then(() => {
-        // Sign-out successful.
         console.log("logging out user");
         location.replace('./index.html');
-    }).catch((error) => {
-        // An error happened.
-    });
+    })
 }
 
 function dark_mode() {
@@ -53,6 +41,7 @@ function dark_mode() {
         $('.enter_btn ').attr('style', 'color: white!important; background-color: #2999FF !important;transition: all .5s;');
         $('#search_btn').attr('style', 'color: white!important; background-color: #2999FF !important;transition: all .5s;');
         $('h1').attr('style', 'color: white!important')
+        $('p').attr('style', 'color: white!important')
         $('.card-footer').attr('style', 'background-color: #665f5f!important')
         $('.material-symbols-rounded').attr('style', 'color: white!important')
         $('.faq-page').attr('style', 'color: #858282!important')
@@ -68,6 +57,7 @@ function dark_mode() {
         $('.enter_btn ').removeAttr('style').attr('style', 'transition: all .5s;')
         $('#search_btn ').removeAttr('style').attr('style', 'transition: all .5s;')
         $('h1').removeAttr('style').attr('style', 'transition: all .5s;')
+        $('p').removeAttr('style').attr('style', 'transition: all .5s;')
         $('.card-footer').removeAttr('style').attr('style', 'transition: all .5s;')
         $('.material-symbols-rounded').removeAttr('style').attr('style', 'transition: all .5s;')
         $('.faq-page').removeAttr('style').attr('style', 'transition: all .5s;')
@@ -76,8 +66,4 @@ function dark_mode() {
     }
 }
 
-loadSkeleton();  //invoke the function
-
-// $(document).ready(function() {
-//     .is(':checked')
-// })
+loadSkeleton();
