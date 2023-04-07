@@ -47,7 +47,7 @@ function displayCommunityPostDynamically(collection) {
     let ID = params.searchParams.get("docID"); //get value for key "id"
     let i = 0
 
-    db.collection(collection).where("communityid", "==", ID) //.orderBy("timestamp", "desc")
+    db.collection(collection).where("communityid", "==", ID).orderBy("timestamp", "desc")
         .get()
         .then((allPost) => {
             allPost.forEach((doc) => {
