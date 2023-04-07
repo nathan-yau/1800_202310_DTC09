@@ -45,7 +45,6 @@ function populateUserInfo() {
   });
 }
 
-
 let originalUserInfo = {};
 let editMode = false;
 
@@ -72,7 +71,6 @@ function editUserInfo() {
   }
 }
 
-
 var ImageFile;
 
 function chooseFileListener() {
@@ -84,35 +82,22 @@ function chooseFileListener() {
     image.src = blob;
   })
 }
-chooseFileListener();
 
+chooseFileListener();
 
 function saveUserInfo() {
   firebase.auth().onAuthStateChanged(function (user) {
-    var storageRef = storage.ref("images/" + user.uid + ".jpg");
-    storageRef.put(ImageFile)
-      .then(function () {
-        storageRef.getDownloadURL()
-          .then(function (url) { // Get "url" of the uploaded file
-            console.log("Got the download URL: " + url);
-            var userName = document.getElementById("nameInput").value;
-            var userPC = document.getElementById("postalCodeInput").value;
-            var userCity = document.getElementById("cityInput").value;
-            var subscription = document.getElementById("emailSubscription").value;
-            if (!ImageFile) {
-              currentUser.update({
-                name: userName,
-                postalcode: userPC,
-                city: userCity,
-                subscription: subscription,
-              })
-                .then(function () {
-                  document.getElementById('personalInfoFields').disabled = true;
-                })
-                .catch(function (error) {
-                  console.error('Error updating user profile:', error);
-                });
-            } else {
+    var userName = document.getElementById("nameInput").value;
+    var userPC = document.getElementById("postalCodeInput").value;
+    var userCity = document.getElementById("cityInput").value;
+    var subscription = document.getElementById("emailSubscription").value;
+    if (document.getElementById("mypic-input").value !== "") {
+      var storageRef = storage.ref("images/" + user.uid + ".jpg");
+      storageRef.put(ImageFile)
+        .then(function () {
+          storageRef.getDownloadURL()
+            .then(function (url) { // Get "url" of the uploaded file
+              console.log("Got the download URL: " + url);
               currentUser.update({
                 name: userName,
                 postalcode: userPC,
@@ -122,15 +107,29 @@ function saveUserInfo() {
               })
                 .then(function () {
                   document.getElementById('personalInfoFields').disabled = true;
+                  window.location.reload();
                 })
                 .catch(function (error) {
                   console.error('Error updating user profile:', error);
                 });
-            }
-          })
+              })
+        })
+    } else {
+      currentUser.update({
+        name: userName,
+        postalcode: userPC,
+        city: userCity,
+        subscription: subscription,
       })
+        .then(function () {
+          document.getElementById('personalInfoFields').disabled = true;
+          window.location.reload();
+        })
+        .catch(function (error) {
+          console.error('Error updating user profile:', error);
+        });  
+    }
   })
 }
-
 
 populateUserInfo();
