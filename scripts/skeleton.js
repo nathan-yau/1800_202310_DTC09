@@ -6,7 +6,7 @@ function loadSkeleton() {
             $('#footerPlaceholder').load('../text/footer_after_login.html')
         } else {
             $('#navbarPlaceholder').load('../text/nav_before_login.html');
-            $('#footerPlaceholder').load('..    /text/footer_before_login.html');
+            $('#footerPlaceholder').load('../text/footer_before_login.html');
         }
     });
 
