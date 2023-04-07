@@ -19,6 +19,8 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * Firebase 8.0 (BAAS - Backend as a Service)
 * JQuery
 * MapBox
+* Swiffy Slider
+* Google Fonts and Material Symbols Library
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
@@ -37,17 +39,15 @@ that you signed up with, and click sign in.
 * 10. To toggle dark mode on/off, click on the "Dark Mode" option from the hamburger menu.
 
 ## 5. Known Bugs and Limitations
-Here are some known bugs:
-* ...
-* ...
-* ...
+Here are some known bugs or limitations:
+* Users cannot change their password by themselves.
 
 ## 6. Features for Future
 What we'd like to build in the future:
 * Ability to remove posts.
+* Ability to reply to posts.
 * Ability to unsubscribe from email notifications.
-* ...
-	
+
 ## 7. Contents of Folder
 Content of the project folder:
 
